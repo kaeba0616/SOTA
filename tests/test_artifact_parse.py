@@ -25,3 +25,29 @@ def test_decimal_ladder():
     r = parse_content("치명타 확률 1/1.5/2/2.5% 증가")
     assert r["max_level"] == 4
     assert r["scale_groups"] == [[1.0, 1.5, 2.0, 2.5]]
+
+import json, pathlib
+from sota.scrape.artifact_parse import normalize_artifact
+
+FIX = pathlib.Path(__file__).parent / "fixtures"
+
+def test_normalize_artifact_schema():
+    raw = json.loads((FIX / "raw_artifacts_sample.json").read_text(encoding="utf-8"))
+    a = normalize_artifact(raw[1])  # calges
+    assert a == {
+        "id": 25,
+        "key": "calges",
+        "name_kor": "캘세더니 열쇠",
+        "tier": "advanced",
+        "combos": ["magic_engineering"],
+        "effect_text": "관련된 속성 피해 +2/4/6/8",
+        "max_level": 4,
+        "scale_groups": [[2.0, 4.0, 6.0, 8.0]],
+        "image": "https://img.sephiria.wiki/artifacts/calges_2.png",
+    }
+
+def test_normalize_unique_effect_level_one():
+    raw = json.loads((FIX / "raw_artifacts_sample.json").read_text(encoding="utf-8"))
+    a = normalize_artifact(raw[0])  # fire_bolt
+    assert a["max_level"] == 1
+    assert a["combos"] == ["yinggalbul"]
