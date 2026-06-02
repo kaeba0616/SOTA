@@ -27,11 +27,18 @@ def test_combo_thresholds_are_within_bounds():
         assert min(counts) >= c["min_count"] and max(counts) <= c["max_count"]
 
 def test_every_tablet_has_well_formed_effects():
+    SHAPES = {"row", "column", "diagonal", "top", "bottom"}
     for t in _load("tablets.json"):
         assert "_TODO_geometry" not in t, f"{t['key']} still missing geometry"
         for e in t["effects"]:
-            assert set(e) >= {"pos", "type", "value"}
-            assert len(e["pos"]) == 2
+            assert "type" in e and "value" in e, f"{t['key']}: effect missing type/value"
+            has_pos = "pos" in e
+            has_shape = "shape" in e
+            assert has_pos != has_shape, f"{t['key']}: effect must have exactly one of pos/shape: {e}"
+            if has_pos:
+                assert len(e["pos"]) == 2
+            else:
+                assert e["shape"] in SHAPES, f"{t['key']}: unknown shape {e['shape']}"
 
 def test_max_level_is_at_least_one():
     assert all(a["max_level"] >= 1 for a in _load("artifacts.json"))

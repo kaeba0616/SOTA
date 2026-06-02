@@ -823,11 +823,7 @@
       {
         "shape": "row",
         "type": "level_add",
-        "value": -1,
-        "pos": [
-          0,
-          0
-        ]
+        "value": -1
       }
     ]
   },
@@ -988,20 +984,12 @@
       {
         "shape": "column",
         "type": "level_add",
-        "value": -1,
-        "pos": [
-          0,
-          0
-        ]
+        "value": -1
       },
       {
         "shape": "row",
         "type": "level_add",
-        "value": 1,
-        "pos": [
-          0,
-          0
-        ]
+        "value": 1
       }
     ]
   },
@@ -1060,11 +1048,7 @@
       {
         "shape": "column",
         "type": "level_add",
-        "value": 1,
-        "pos": [
-          0,
-          0
-        ]
+        "value": 1
       }
     ]
   },
@@ -1240,11 +1224,7 @@
       {
         "shape": "row",
         "type": "level_add",
-        "value": 1,
-        "pos": [
-          0,
-          0
-        ]
+        "value": 1
       }
     ]
   },
@@ -1334,11 +1314,7 @@
       {
         "shape": "column",
         "type": "level_add",
-        "value": 1,
-        "pos": [
-          0,
-          0
-        ]
+        "value": 1
       }
     ]
   },
@@ -1413,11 +1389,7 @@
       {
         "shape": "diagonal",
         "type": "level_add",
-        "value": 1,
-        "pos": [
-          0,
-          0
-        ]
+        "value": 1
       }
     ]
   },
@@ -1468,11 +1440,7 @@
       {
         "shape": "bottom",
         "type": "level_add",
-        "value": 1,
-        "pos": [
-          0,
-          0
-        ]
+        "value": 1
       }
     ]
   },
@@ -1571,20 +1539,12 @@
       {
         "shape": "top",
         "type": "level_add",
-        "value": 1,
-        "pos": [
-          0,
-          0
-        ]
+        "value": 1
       },
       {
         "shape": "bottom",
         "type": "level_add",
-        "value": 1,
-        "pos": [
-          0,
-          0
-        ]
+        "value": 1
       }
     ]
   },
@@ -1620,11 +1580,7 @@
       {
         "shape": "row",
         "type": "level_add",
-        "value": 1,
-        "pos": [
-          0,
-          0
-        ]
+        "value": 1
       }
     ]
   },
@@ -1644,20 +1600,12 @@
       {
         "shape": "row",
         "type": "level_add",
-        "value": 1,
-        "pos": [
-          0,
-          0
-        ]
+        "value": 1
       },
       {
         "shape": "column",
         "type": "level_add",
-        "value": 1,
-        "pos": [
-          0,
-          0
-        ]
+        "value": 1
       }
     ]
   },

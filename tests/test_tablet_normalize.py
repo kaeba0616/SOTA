@@ -20,3 +20,13 @@ def test_rename_applied_from_image_basename():
 def test_full_schema_keys():
     t = normalize_tablet(_load()[0])
     assert set(t) == {"id", "key", "name", "image", "rotatable", "size", "rarity", "restriction", "effects"}
+
+def test_shape_effect_is_preserved_without_pos():
+    raw = {"id": "tb_x", "name": "기적", "image_url": "assets/tablets/miracle.png",
+           "properties": {"rotatable": False, "size": [1, 1], "rarity": "전설", "restriction": None},
+           "effects": [{"shape": "row", "type": "level_add", "value": 1},
+                       {"shape": "column", "type": "level_add", "value": 1}]}
+    t = normalize_tablet(raw)
+    assert t["effects"] == [{"shape": "row", "type": "level_add", "value": 1},
+                            {"shape": "column", "type": "level_add", "value": 1}]
+    assert all("pos" not in e for e in t["effects"])
