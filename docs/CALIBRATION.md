@@ -14,9 +14,15 @@ The simulator renders, on each placed artifact, a badge **`X / Y`**.
   for fire_bolt 1, ohia_lehua 2, criton 2, ignition 3, …).
 - **Start level = 1; effective level = clamp(1 + boost, 1, max_level).**
 - **`max_level = level + 1`** (RESOLVED — see below).
-- **`row` shape = the tablet's whole row.** Placing `base`(기반, row +1) boosted every
-  artifact sharing its row by +1 and left other rows at 0. (`column` is the transpose;
-  same code path.)
+- **All shape effects verified (2026-06-02):**
+  - `row` = the tablet's whole row (`base`/기반 boosted only its row).
+  - `column` = the tablet's whole column (`justice`/정의 + /large tooltip).
+  - `top` = inventory top edge (row 0); `bottom` = inventory bottom edge (last row).
+    `boundary`(경계, top+bottom) at (2,2) of a 6-row grid boosted row 0 and row 5 but
+    NOT row 4 — so top/bottom are absolute edges, not ±offsets. Matches the code.
+  - `diagonal` = the **anti-diagonal "/" line only** (`r+c` constant), NOT both diagonals.
+    `rebellion`(반항) at (2,2) boosted (3,1)/(1,3)/(0,4)/(4,0) but left (1,1) at 0.
+    **Fixed** in `shape_cells` (was both diagonals). Locked by golden test.
 - **Clamp** holds: fire_bolt (real max 2) boosted past its cap stayed at level 2 (badge `1 / 1`).
 
 ## Resolved bug: `max_level` for 25 artifacts
@@ -29,16 +35,29 @@ ladder length kept only for `scale_groups`); `artifacts.json` regenerated. For t
 ladder artifacts `level+1` already equalled the ladder length, so they are unchanged.
 This was a real optimizer bug: it under-credited boosting those 25 artifacts.
 
+## Open question: `restriction` placement legality
+
+**The simulator does NOT enforce tablet `restriction`.** `linear`(선의, restriction
+`bottom`) dropped onto row 0 stayed there — a bottom-restricted tablet placed at the top.
+So the score oracle is permissive: restricted tablets can sit anywhere and still compute.
+
+`solve/legality.py` currently FORBIDS restricted tablets outside their edge (bottom→last
+row, top→row 0, left_right→edge columns), derived from the /large tooltip ★ positions.
+This is **stricter than the simulator**. Two possibilities:
+- The actual game enforces the restriction (then the constraint is correct and the
+  simulator is just a lenient planning tool) — keep `legality` as is.
+- The game is also permissive (then `legality` is over-restrictive and the GA misses
+  valid layouts) — relax it.
+
+**Needs the player's confirmation** (can 선의/정의/차양 be placed anywhere in-game, or only
+at the bottom/edge/top?). Until then `legality` stays conservative (enforced), so suggested
+layouts are guaranteed legal even if some valid ones are skipped. Affects only 3 tablets.
+
 ## Still provisional (low impact)
 
-- **`diagonal` / `top` / `bottom` shapes** — only 4 tablets use these (1 diagonal, 1 top,
-  2 bottom). `row` and the coordinate system are confirmed, giving high confidence in
-  `column`; `diagonal/top/bottom` cell sets remain best-guess in
-  `evaluate/effects.py:shape_cells`. Verify by placing `rebellion`(diagonal), `shade`(bottom),
-  `boundary`(top/bottom) and reading which neighbour badges light up.
-- **`restriction` placement legality** (`top`/`bottom`/`left_right`) in
-  `solve/legality.py` — provisional; not yet oracle-checked.
 - **`restriction_remove`** tablet interactions — not modeled in v1.
+- **diagonal rotation** — `rebellion` is modeled at its default "/" orientation; if it is
+  rotatable, other rotations (e.g. "\") are not yet handled (only 1 diagonal tablet).
 
 ## Oracle harness
 

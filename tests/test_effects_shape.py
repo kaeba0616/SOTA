@@ -7,11 +7,14 @@ def test_row_and_column():
     assert sorted(shape_cells("row", 2, 3, G)) == [(2, c) for c in range(6)]
     assert sorted(shape_cells("column", 2, 3, G)) == [(r, 3) for r in range(6)]
 
-def test_diagonal_excludes_self():
+def test_diagonal_is_anti_diagonal_only():
+    # Oracle (rebellion): only the anti-diagonal "/" (r+c constant) lights up,
+    # not both diagonals.
     cells = set(shape_cells("diagonal", 2, 2, G))
-    assert (2, 2) not in cells
-    assert (0, 0) in cells and (4, 4) in cells
-    assert (0, 4) in cells and (4, 0) in cells
+    assert (2, 2) not in cells                          # excludes self
+    assert (0, 4) in cells and (4, 0) in cells          # anti-diagonal r+c==4
+    assert (1, 3) in cells and (3, 1) in cells
+    assert (0, 0) not in cells and (4, 4) not in cells  # main diagonal NOT included
     assert (2, 3) not in cells
 
 def test_top_and_bottom_rows():

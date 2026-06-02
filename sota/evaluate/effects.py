@@ -19,12 +19,13 @@ def pos_target(trow, tcol, pos, rotation, grid):
 def shape_cells(shape, trow, tcol, grid):
     """Cells a shape (area) effect from a tablet at (trow,tcol) hits. In-bounds only.
 
-    Provisional semantics (verified against the simulator oracle in Task 8):
+    Semantics (verified against the simulator oracle 2026-06-02):
       row     -> the tablet's whole row
       column  -> the tablet's whole column
-      diagonal-> both diagonals through the tablet (excludes the tablet cell)
-      top     -> the topmost row (row 0)
-      bottom  -> the bottommost occupied row (grid.rows - 1)
+      diagonal-> the ANTI-diagonal line through the tablet (r+c constant),
+                 NOT both diagonals (rebellion's pattern: only "/" lights up)
+      top     -> the inventory's top edge row (row 0)
+      bottom  -> the inventory's bottom edge row (grid.rows - 1)
     """
     out = []
     if shape == "row":
@@ -34,7 +35,7 @@ def shape_cells(shape, trow, tcol, grid):
     elif shape == "diagonal":
         for r in range(grid.rows):
             for c in range(grid.cols):
-                if (r, c) != (trow, tcol) and abs(r - trow) == abs(c - tcol):
+                if (r, c) != (trow, tcol) and (r + c) == (trow + tcol):
                     out.append((r, c))
     elif shape == "top":
         out = [(0, c) for c in range(grid.cols)]
