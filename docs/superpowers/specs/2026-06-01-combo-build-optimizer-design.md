@@ -27,10 +27,11 @@
 
 - **그리드**: 6열 고정. 슬롯 수 N → 마지막 줄은 부분적으로 채워짐 (위키 시뮬레이터와 동일하게 하단으로 1칸씩 증가).
 - **셀 점유**: 아티팩트는 **전부 1×1** (위키 데이터에 size 필드 없음 확인). 석판은 `size`가 있어 다칸 가능 + 회전(rotatable) + 배치 제약(top/bottom/left_right).
-- **석판 효과**: `tablets.json`의 `effects[{pos:[dx,dy], type, value}]`.
-  - `level_add`: 상대 위치 셀의 아티팩트 유효레벨 +value (음수 가능 — 예: `도래` −1).
-  - `restriction_remove` 등 특수 효과 모델링.
-  - 회전 시 `pos` 오프셋을 회전 변환.
+- **석판 효과**: `tablets.json`의 `effects[]`. **두 종류**(데이터 검증, pos XOR shape):
+  - **pos 기반** `{pos:[dx,dy], type, value}`: 상대 위치 1칸. `level_add`=유효레벨 +value (음수 가능 — `도래` −1). 좌표: dx=열 우+, **dy=행 위+**. 회전 시 `pos` 회전 변환.
+  - **shape 기반(영역)** `{shape, type, value}` (pos 없음): 석판이 놓인 줄/영역 전체. shape ∈ `{row, column, diagonal, top, bottom}`. **약 10개 석판**(기적·응집·전이·정의·기반·동시성·반항·차양·경계·광휘)이 사용 → **평가엔진이 반드시 별도 처리**(pos 환원 불가).
+  - **`restriction_remove`**(오라클: 보라색 셀, value=boolean), rotatable/size/restriction 모델링.
+  - **geometry 출처(정정)**: 위키 `/large` 석판 페이지에서 hover 시 **5×5 효과 그리드 툴팁**이 렌더 → geometry 추출 가능. 누락 4개(courage/honor/hospitality/peace)는 이 오라클로 작성 완료. 또한 `encouragement`는 stale 아니라 `home_town`(고양)의 rename임을 발견·정정.
 - **아티팩트 유효레벨**: `clamp(시작레벨 + Σ(자기 셀을 가리키는 석판 level_add), 1 .. maxLevel)`.
   - **maxLevel은 아티팩트마다 다름** (사용자 확인). `effect.content`의 레벨스케일 항목 수 = 그 아티팩트의 단계 수이며 **2~8개로 제각각** (균일한 4 아님 — 데이터 검증 완료). 즉 "전역 레벨 캡 4" 가정은 폐기.
   - 데이터의 `level` 필드는 시작레벨/캡과 무관하게 보임(0~14 분포) → 의미 미확정, 평가엔진에서 직접 사용하지 않고 content 단계 수로 maxLevel 산정.
@@ -151,7 +152,7 @@ sota/
 - ~~석판 전체 목록 완전성~~ — **해소.** 게임 54 vs 로컬 50: 누락 5 + 이름 불일치 6 + 구버전 1 식별 (§6).
 - ~~CNN 커버리지~~ — **정량화 완료.** 진짜 누락 ~11개 + 이름 정규화 (§6). 중복 카운트는 인식 단계에서 개수 세기 구현 필요.
 - **남은 미세규칙** — `restriction`/`restriction_remove` 정확 동작, 음수 level_add 상호작용, 데이터 `level` 필드 의미 → §12 오라클로 구현 중 확정.
-- **석판 효과 geometry 출처** — 위키에 정형 데이터 없음. 로컬 tablet.json(수작업)이 유일 소스 → 누락 5개 geometry는 인게임/시뮬레이터 관찰로 작성.
+- ~~석판 효과 geometry 출처~~ — **해소.** 위키 `/large` hover 5×5 그리드 툴팁에서 추출 가능(§2). 누락 4개 작성 완료, `encouragement→home_town` rename 정정. shape 효과 10종 발견.
 - **게임 버전 드리프트** — v0.12.0 기준, 패치 시 재추출.
 
 ---
