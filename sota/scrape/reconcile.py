@@ -6,17 +6,17 @@ RENAME_LOCAL_TO_WIKI = {
     "three_heads": "triceps",
     "fusion": "unity",
     "desire": "yearning",
+    "encouragement": "home_town",  # 고양 — rename, not stale
 }
-# slabs present in-game (54) but absent from tablet.json -> must be authored later
+# slabs present in-game (54) but absent from tablet.json -> authored from wiki oracle
 MISSING_TABLET_KEYS = {
     "courage": "용기",
-    "home_town": "고양",
     "honor": "명예",
     "hospitality": "환대",
     "peace": "평화",
 }
-# in tablet.json but not in-game (54) after rename -> likely removed in v0.12.0
-STALE_TABLET_KEYS = {"encouragement"}  # 격려
+# in tablet.json but not in-game after rename -> none remain
+STALE_TABLET_KEYS = set()
 
 
 def reconcile(tablet_keys: set[str], slab_keys: set[str]) -> dict:
