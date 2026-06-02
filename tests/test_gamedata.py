@@ -5,7 +5,7 @@ def test_loads_real_data():
     assert len(gd.artifacts) == 248
     assert len(gd.tablets) == 54
     assert len(gd.combos) == 19
-    assert gd.artifacts["fire_bolt"]["max_level"] == 1
+    assert gd.artifacts["fire_bolt"]["max_level"] == 2  # level 1 + 1 (oracle-verified)
     assert gd.tablets["peace"]["effects"][0]["type"] == "level_add"
     assert gd.combos["yinggalbul"]["thresholds"][0]["count"] == 2
 

@@ -69,7 +69,7 @@
       "magic_engineering"
     ],
     "effect_text": "[고유] 라이트닝 볼트 획득",
-    "max_level": 1,
+    "max_level": 2,
     "scale_groups": [],
     "image": "https://img.sephiria.wiki/artifacts/lightning_bolt.png"
   },
@@ -201,7 +201,7 @@
       "guardian"
     ],
     "effect_text": "[고유] 보호막 획득",
-    "max_level": 1,
+    "max_level": 2,
     "scale_groups": [],
     "image": "https://img.sephiria.wiki/artifacts/shield.webp"
   },
@@ -240,7 +240,7 @@
       "glacier"
     ],
     "effect_text": "[고유] 아이스 볼트 획득",
-    "max_level": 1,
+    "max_level": 2,
     "scale_groups": [],
     "image": "https://img.sephiria.wiki/artifacts/ice_bolt.png"
   },
@@ -444,7 +444,7 @@
     "tier": "common",
     "combos": [],
     "effect_text": "[고유] 축복 획득",
-    "max_level": 1,
+    "max_level": 3,
     "scale_groups": [],
     "image": "https://img.sephiria.wiki/artifacts/blessing.png"
   },
@@ -496,7 +496,7 @@
       "yinggalbul"
     ],
     "effect_text": "[고유] 파이어 볼트 획득",
-    "max_level": 1,
+    "max_level": 2,
     "scale_groups": [],
     "image": "https://img.sephiria.wiki/artifacts/fire_bolt.png"
   },
@@ -632,7 +632,7 @@
       "colleague"
     ],
     "effect_text": "[고유] 동료들의 최대 HP +25/55/88/120/150%",
-    "max_level": 5,
+    "max_level": 6,
     "scale_groups": [
       [
         25.0,
@@ -749,7 +749,7 @@
       "colleague"
     ],
     "effect_text": "[고유] 함께 싸워주는 동료 소환",
-    "max_level": 1,
+    "max_level": 9,
     "scale_groups": [],
     "image": "https://img.sephiria.wiki/artifacts/golden_hand_bell.png"
   },
@@ -829,7 +829,7 @@
       "mystery"
     ],
     "effect_text": "[고유] 대축복 획득",
-    "max_level": 1,
+    "max_level": 3,
     "scale_groups": [],
     "image": "https://img.sephiria.wiki/artifacts/great_blessing.png"
   },
@@ -1176,7 +1176,7 @@
       "magic_engineering"
     ],
     "effect_text": "[고유] 번개 부메랑 획득",
-    "max_level": 1,
+    "max_level": 5,
     "scale_groups": [],
     "image": "https://img.sephiria.wiki/artifacts/lightningboomerang.png"
   },
@@ -1429,7 +1429,7 @@
       "precision"
     ],
     "effect_text": "[고유] 샤프 아이 획득",
-    "max_level": 1,
+    "max_level": 3,
     "scale_groups": [],
     "image": "https://img.sephiria.wiki/artifacts/sharp_eye.png"
   },
@@ -1442,7 +1442,7 @@
       "glacier"
     ],
     "effect_text": "[고유] 서리 단검 획득",
-    "max_level": 1,
+    "max_level": 5,
     "scale_groups": [],
     "image": "https://img.sephiria.wiki/artifacts/frost_dagger.png"
   },
@@ -1968,7 +1968,7 @@
       "colleague"
     ],
     "effect_text": "[고유] 화염 투사체를 발사하는 해파리 소환\n투사체에 적중한 적은 화상 디버프 적용",
-    "max_level": 1,
+    "max_level": 6,
     "scale_groups": [],
     "image": "https://img.sephiria.wiki/artifacts/terros_soul_powder.png"
   },
@@ -1981,7 +1981,7 @@
       "yinggalbul"
     ],
     "effect_text": "[고유] 파이어 애로우 획득",
-    "max_level": 1,
+    "max_level": 3,
     "scale_groups": [],
     "image": "https://img.sephiria.wiki/artifacts/fire_arrow.png"
   },
@@ -2077,7 +2077,7 @@
       "spring_song"
     ],
     "effect_text": "[고유] 헤이스트 획득",
-    "max_level": 1,
+    "max_level": 3,
     "scale_groups": [],
     "image": "https://img.sephiria.wiki/artifacts/haste.png"
   },
@@ -2298,7 +2298,7 @@
       "colleague"
     ],
     "effect_text": "[고유] NPC를 동료로 영입함",
-    "max_level": 1,
+    "max_level": 3,
     "scale_groups": [],
     "image": "https://img.sephiria.wiki/artifacts/employment_sentence_coline.png"
   },
@@ -2839,7 +2839,7 @@
       "yinggalbul"
     ],
     "effect_text": "[고유] 불 서커스 획득",
-    "max_level": 1,
+    "max_level": 4,
     "scale_groups": [],
     "image": "https://img.sephiria.wiki/artifacts/fire_circus.png"
   },
@@ -3042,7 +3042,7 @@
       "glacier"
     ],
     "effect_text": "[고유] 애로우 레인 획득",
-    "max_level": 1,
+    "max_level": 4,
     "scale_groups": [],
     "image": "https://img.sephiria.wiki/artifacts/arrow_lane.png"
   },
@@ -3277,7 +3277,7 @@
       "magic_engineering"
     ],
     "effect_text": "[고유] 천둥 갑옷 획득",
-    "max_level": 1,
+    "max_level": 5,
     "scale_groups": [],
     "image": "https://img.sephiria.wiki/artifacts/thunder.png"
   },
@@ -3689,7 +3689,7 @@
       "yinggalbul"
     ],
     "effect_text": "[고유] 메테오 샤워 획득",
-    "max_level": 1,
+    "max_level": 4,
     "scale_groups": [],
     "image": "https://img.sephiria.wiki/artifacts/meteor_shower.png"
   },
@@ -4113,7 +4113,7 @@
       "colleague"
     ],
     "effect_text": "[고유] 얼음 투사체를 발사하는 해파리 소환\n투사체에 적중한 적은 동상 디버프 적용",
-    "max_level": 1,
+    "max_level": 5,
     "scale_groups": [],
     "image": "https://img.sephiria.wiki/artifacts/heitas_soul_powder.png"
   },
@@ -4850,7 +4850,7 @@
       "colleague"
     ],
     "effect_text": "[고유] 번개 투사체를 발사하는 해파리 소환\n투사체에 적중한 적은 감전 디버프 적용",
-    "max_level": 1,
+    "max_level": 5,
     "scale_groups": [],
     "image": "https://img.sephiria.wiki/artifacts/ahmads_soul_powder.png"
   },
@@ -5068,7 +5068,7 @@
       "colleague"
     ],
     "effect_text": "[고유] 두더지 대장 소환",
-    "max_level": 1,
+    "max_level": 5,
     "scale_groups": [],
     "image": "https://img.sephiria.wiki/artifacts/overall_armband.png"
   },
@@ -5528,7 +5528,7 @@
       "magic_engineering"
     ],
     "effect_text": "[고유] 스킬 천둥의 심판 획득",
-    "max_level": 1,
+    "max_level": 5,
     "scale_groups": [],
     "image": "https://img.sephiria.wiki/artifacts/thunder_judgment.png"
   },
@@ -5629,7 +5629,7 @@
       "magic_engineering"
     ],
     "effect_text": "[고유] 화상과 감전이 플라즈마로 변경\n플라즈마 피해량 -15/10/5/0/+5%",
-    "max_level": 4,
+    "max_level": 5,
     "scale_groups": [
       [
         15.0,
@@ -5650,7 +5650,7 @@
       "yinggalbul"
     ],
     "effect_text": "[고유] 행성 공격이 적중 시, 화상 틱 피해량만큼 피해량이 증가합니다. 아티팩트 등급이 높을수록 증가량이 커집니다.\n일반: 화상 1틱 피해량\n고급: 화상 2틱 피해량\n희귀: 화상 3틱 피해량\n전설: 화상 4틱 피해량",
-    "max_level": 1,
+    "max_level": 5,
     "scale_groups": [],
     "image": "https://img.sephiria.wiki/artifacts/red_planet_observation_log.png"
   }

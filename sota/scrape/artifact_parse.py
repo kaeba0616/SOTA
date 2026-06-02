@@ -15,9 +15,21 @@ def parse_content(content: str) -> dict:
 
 
 def normalize_artifact(raw: dict) -> dict:
+    """Normalize a raw wiki artifact object.
+
+    max_level is the artifact's real level cap, verified against the simulator
+    oracle (2026-06-02): an artifact starts at level 1 and a tablet boost of B
+    raises it to level 1+B, clamped at `max_level`. The wiki `level` field is the
+    maximum boost (the badge's "X / Y" second number Y), so max_level = level + 1.
+    The slash-ladder length only equals this for ladder artifacts; for [고유]
+    (spell/summon) artifacts the ladder is absent or partial, so `level` is the
+    authority. scale_groups (the numeric ladders) are kept for value computation.
+    """
     effect = raw.get("effect") or {}
     content = effect.get("content", "")
     parsed = parse_content(content)
+    base = raw.get("level")
+    max_level = base + 1 if isinstance(base, int) else parsed["max_level"]
     return {
         "id": raw["id"],
         "key": raw.get("value") or raw["label_eng"],
@@ -25,7 +37,7 @@ def normalize_artifact(raw: dict) -> dict:
         "tier": raw["tier"],
         "combos": list(effect.get("sets") or []),
         "effect_text": content,
-        "max_level": parsed["max_level"],
+        "max_level": max_level,
         "scale_groups": parsed["scale_groups"],
         "image": raw["image"],
     }
