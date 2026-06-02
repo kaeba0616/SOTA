@@ -1,0 +1,218 @@
+[
+  {
+    "id": "chivalry",
+    "label": "기사도"
+  },
+  {
+    "id": "dry",
+    "label": "건조"
+  },
+  {
+    "id": "approximation",
+    "label": "근사"
+  },
+  {
+    "id": "advent",
+    "label": "도래"
+  },
+  {
+    "id": "linear",
+    "label": "선의"
+  },
+  {
+    "id": "sight",
+    "label": "시선"
+  },
+  {
+    "id": "handshake",
+    "label": "악수"
+  },
+  {
+    "id": "fate",
+    "label": "운명"
+  },
+  {
+    "id": "wit",
+    "label": "재치"
+  },
+  {
+    "id": "exploitation",
+    "label": "착취"
+  },
+  {
+    "id": "unity",
+    "label": "화합"
+  },
+  {
+    "id": "cheer",
+    "label": "환호"
+  },
+  {
+    "id": "hope",
+    "label": "희망"
+  },
+  {
+    "id": "compete",
+    "label": "경쟁"
+  },
+  {
+    "id": "beating",
+    "label": "고동"
+  },
+  {
+    "id": "home_town",
+    "label": "고양"
+  },
+  {
+    "id": "past",
+    "label": "과거"
+  },
+  {
+    "id": "future",
+    "label": "미래"
+  },
+  {
+    "id": "distribution",
+    "label": "분배"
+  },
+  {
+    "id": "triceps",
+    "label": "삼두"
+  },
+  {
+    "id": "harvesting",
+    "label": "수확"
+  },
+  {
+    "id": "binary_star",
+    "label": "쌍성"
+  },
+  {
+    "id": "nurture",
+    "label": "양육"
+  },
+  {
+    "id": "yearning",
+    "label": "열망"
+  },
+  {
+    "id": "agglutination",
+    "label": "응집"
+  },
+  {
+    "id": "entrance",
+    "label": "입구"
+  },
+  {
+    "id": "joke",
+    "label": "장난"
+  },
+  {
+    "id": "load",
+    "label": "적재"
+  },
+  {
+    "id": "transition",
+    "label": "전이"
+  },
+  {
+    "id": "advance",
+    "label": "전진"
+  },
+  {
+    "id": "justice",
+    "label": "정의"
+  },
+  {
+    "id": "preparation",
+    "label": "준비"
+  },
+  {
+    "id": "exit",
+    "label": "출구"
+  },
+  {
+    "id": "tide",
+    "label": "파도"
+  },
+  {
+    "id": "dedication",
+    "label": "헌정"
+  },
+  {
+    "id": "honor",
+    "label": "명예"
+  },
+  {
+    "id": "base",
+    "label": "기반"
+  },
+  {
+    "id": "warrant",
+    "label": "권능"
+  },
+  {
+    "id": "disconnection",
+    "label": "단절"
+  },
+  {
+    "id": "concurrency",
+    "label": "동시성"
+  },
+  {
+    "id": "vow",
+    "label": "맹세"
+  },
+  {
+    "id": "rebellion",
+    "label": "반항"
+  },
+  {
+    "id": "connection",
+    "label": "이음"
+  },
+  {
+    "id": "shade",
+    "label": "차양"
+  },
+  {
+    "id": "thorn",
+    "label": "가시"
+  },
+  {
+    "id": "boundary",
+    "label": "경계"
+  },
+  {
+    "id": "sheen",
+    "label": "광휘"
+  },
+  {
+    "id": "miracle",
+    "label": "기적"
+  },
+  {
+    "id": "daydream",
+    "label": "백일몽"
+  },
+  {
+    "id": "compression",
+    "label": "압축"
+  },
+  {
+    "id": "certitude",
+    "label": "확신"
+  },
+  {
+    "id": "hospitality",
+    "label": "환대"
+  },
+  {
+    "id": "courage",
+    "label": "용기"
+  },
+  {
+    "id": "peace",
+    "label": "평화"
+  }
+]
