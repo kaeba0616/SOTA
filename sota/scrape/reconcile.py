@@ -17,3 +17,12 @@ MISSING_TABLET_KEYS = {
 }
 # in tablet.json but not in-game (54) after rename -> likely removed in v0.12.0
 STALE_TABLET_KEYS = {"encouragement"}  # 격려
+
+
+def reconcile(tablet_keys: set[str], slab_keys: set[str]) -> dict:
+    """Classify normalized tablet keys against in-game slab keys."""
+    return {
+        "matched": tablet_keys & slab_keys,
+        "missing": slab_keys - tablet_keys,   # in game, not authored yet
+        "stale": tablet_keys - slab_keys,     # authored, not in game (removed)
+    }
