@@ -1,0 +1,482 @@
+[
+  {
+    "key": "yinggalbul",
+    "label": "잉걸불",
+    "min_count": 2,
+    "max_count": 10,
+    "thresholds": [
+      {
+        "count": 2,
+        "effect": "화염 손길 효과 활성화"
+      },
+      {
+        "count": 4,
+        "effect": "+6 화염속성 피해"
+      },
+      {
+        "count": 6,
+        "effect": "화염 손길 재사용 대기시간 가속 150%"
+      },
+      {
+        "count": 8,
+        "effect": "+8 화염속성 피해"
+      },
+      {
+        "count": 10,
+        "effect": "화상의 기본 피해 배율이 18→28%로 변경"
+      }
+    ]
+  },
+  {
+    "key": "ice_weapon",
+    "label": "얼음무구",
+    "min_count": 2,
+    "max_count": 10,
+    "thresholds": [
+      {
+        "count": 2,
+        "effect": "+6% 얼음 무구 충전 속도"
+      },
+      {
+        "count": 4,
+        "effect": "+8% 얼음 무구 충전 속도"
+      },
+      {
+        "count": 6,
+        "effect": "+6% 얼음 무구의 피해량"
+      },
+      {
+        "count": 8,
+        "effect": "+8% 얼음 무구의 피해량"
+      },
+      {
+        "count": 10,
+        "effect": "얼음 무구가 1회 추가 발동"
+      }
+    ]
+  },
+  {
+    "key": "glacier",
+    "label": "빙하",
+    "min_count": 2,
+    "max_count": 10,
+    "thresholds": [
+      {
+        "count": 2,
+        "effect": "서리 손길 효과 활성화"
+      },
+      {
+        "count": 4,
+        "effect": "+6 얼음속성 피해"
+      },
+      {
+        "count": 6,
+        "effect": "서리 손길 재사용 대기시간 가속 150%"
+      },
+      {
+        "count": 8,
+        "effect": "+8 얼음속성 피해"
+      },
+      {
+        "count": 10,
+        "effect": "빙결에 필요한 동상 중첩 수 -1"
+      }
+    ]
+  },
+  {
+    "key": "magic_engineering",
+    "label": "마법공학",
+    "min_count": 2,
+    "max_count": 10,
+    "thresholds": [
+      {
+        "count": 2,
+        "effect": "전격 손길 효과 활성화"
+      },
+      {
+        "count": 4,
+        "effect": "+6 번개속성 피해"
+      },
+      {
+        "count": 6,
+        "effect": "전격 손길 재사용 대기시간 가속 150%"
+      },
+      {
+        "count": 8,
+        "effect": "+8 번개속성 피해"
+      },
+      {
+        "count": 10,
+        "effect": "감전이 발동하는 시간 -1초"
+      }
+    ]
+  },
+  {
+    "key": "shadow",
+    "label": "그림자",
+    "min_count": 2,
+    "max_count": 10,
+    "thresholds": [
+      {
+        "count": 2,
+        "effect": "+4 회피"
+      },
+      {
+        "count": 4,
+        "effect": "+5 회피"
+      },
+      {
+        "count": 6,
+        "effect": "+6 회피"
+      },
+      {
+        "count": 8,
+        "effect": "+8 회피"
+      },
+      {
+        "count": 10,
+        "effect": "+10 회피"
+      }
+    ]
+  },
+  {
+    "key": "guardian",
+    "label": "수호",
+    "min_count": 2,
+    "max_count": 10,
+    "thresholds": [
+      {
+        "count": 2,
+        "effect": "+6 방어력"
+      },
+      {
+        "count": 4,
+        "effect": "+7 방어력"
+      },
+      {
+        "count": 6,
+        "effect": "+8 방어력"
+      },
+      {
+        "count": 8,
+        "effect": "+10 방어력"
+      },
+      {
+        "count": 10,
+        "effect": "+12 방어력, +5% 방어 관통"
+      }
+    ]
+  },
+  {
+    "key": "spring_song",
+    "label": "바람노래",
+    "min_count": 2,
+    "max_count": 10,
+    "thresholds": [
+      {
+        "count": 2,
+        "effect": "+8% 공격 속도"
+      },
+      {
+        "count": 4,
+        "effect": "+12% 공격 속도"
+      },
+      {
+        "count": 6,
+        "effect": "+16% 공격 속도"
+      },
+      {
+        "count": 8,
+        "effect": "+20% 공격 속도"
+      },
+      {
+        "count": 10,
+        "effect": "+15% 무기 피해량, +1 대시 횟수"
+      }
+    ]
+  },
+  {
+    "key": "mystery",
+    "label": "신비",
+    "min_count": 2,
+    "max_count": 4,
+    "thresholds": [
+      {
+        "count": 2,
+        "effect": "무작위 1칸"
+      },
+      {
+        "count": 4,
+        "effect": "무작위 2칸"
+      }
+    ]
+  },
+  {
+    "key": "planet",
+    "label": "행성",
+    "min_count": 2,
+    "max_count": 10,
+    "thresholds": [
+      {
+        "count": 2,
+        "effect": "+8% 행성 피해량"
+      },
+      {
+        "count": 4,
+        "effect": "+10% 행성 피해량"
+      },
+      {
+        "count": 6,
+        "effect": "+12% 행성 피해량"
+      },
+      {
+        "count": 8,
+        "effect": "+14% 행성 피해량"
+      },
+      {
+        "count": 10,
+        "effect": "+16% 행성 피해량, +12% 행성 공격 속도"
+      }
+    ]
+  },
+  {
+    "key": "colleague",
+    "label": "동료",
+    "min_count": 2,
+    "max_count": 10,
+    "thresholds": [
+      {
+        "count": 2,
+        "effect": "+6% 동료가 입히는 피해량"
+      },
+      {
+        "count": 4,
+        "effect": "+8% 동료가 입히는 피해량"
+      },
+      {
+        "count": 6,
+        "effect": "+10% 동료가 입히는 피해량, +15 동료들의 방어력"
+      },
+      {
+        "count": 8,
+        "effect": "+12% 동료가 입히는 피해량, +20 동료들의 방어력"
+      },
+      {
+        "count": 10,
+        "effect": "+20% 동료가 입히는 피해량, +40% 동료 부활 시간 가속"
+      }
+    ]
+  },
+  {
+    "key": "precision",
+    "label": "정밀",
+    "min_count": 2,
+    "max_count": 10,
+    "thresholds": [
+      {
+        "count": 2,
+        "effect": "+4% 치명타 확률"
+      },
+      {
+        "count": 4,
+        "effect": "+6% 치명타 확률"
+      },
+      {
+        "count": 6,
+        "effect": "+8% 치명타 확률"
+      },
+      {
+        "count": 8,
+        "effect": "+10% 치명타 확률"
+      },
+      {
+        "count": 10,
+        "effect": "+30% 치명타 피해"
+      }
+    ]
+  },
+  {
+    "key": "extrium",
+    "label": "먹구름",
+    "min_count": 2,
+    "max_count": 10,
+    "thresholds": [
+      {
+        "count": 2,
+        "effect": "먹구름 활성화 (기본 용량 15)"
+      },
+      {
+        "count": 4,
+        "effect": "+8 먹구름 용량"
+      },
+      {
+        "count": 6,
+        "effect": "+12 먹구름 용량"
+      },
+      {
+        "count": 8,
+        "effect": "+16 먹구름 용량"
+      },
+      {
+        "count": 10,
+        "effect": "+20 먹구름 용량, 먹구름이 2점사로 공격함"
+      }
+    ]
+  },
+  {
+    "key": "firmness",
+    "label": "견고",
+    "min_count": 2,
+    "max_count": 10,
+    "thresholds": [
+      {
+        "count": 2,
+        "effect": "+2 물리 피해"
+      },
+      {
+        "count": 4,
+        "effect": "+4 물리 피해"
+      },
+      {
+        "count": 6,
+        "effect": "+6 물리 피해"
+      },
+      {
+        "count": 8,
+        "effect": "+8 물리 피해"
+      },
+      {
+        "count": 10,
+        "effect": "+15% 물리 피해 증폭"
+      }
+    ]
+  },
+  {
+    "key": "lake",
+    "label": "호수",
+    "min_count": 3,
+    "max_count": 9,
+    "thresholds": [
+      {
+        "count": 3,
+        "effect": "+20 최대 MP, +5 MP 재생"
+      },
+      {
+        "count": 6,
+        "effect": "+30 최대 MP, +10% MP를 소모하는 능력의 피해량"
+      },
+      {
+        "count": 9,
+        "effect": "+40 최대 MP, +25% MP를 소모하는 능력의 피해량"
+      }
+    ]
+  },
+  {
+    "key": "sun_sword",
+    "label": "태양검",
+    "min_count": 2,
+    "max_count": 10,
+    "thresholds": [
+      {
+        "count": 2,
+        "effect": "효과 활성화(기본 검 x5)"
+      },
+      {
+        "count": 4,
+        "effect": "+6% 태양검 피해량"
+      },
+      {
+        "count": 6,
+        "effect": "+8% 태양검 피해량, +1 태양검 개수 상한"
+      },
+      {
+        "count": 8,
+        "effect": "+10% 태양검 피해량, +2 태양검 개수 상한"
+      },
+      {
+        "count": 10,
+        "effect": "+12% 태양검 피해량, +6 태양검 개수 상한"
+      }
+    ]
+  },
+  {
+    "key": "academy",
+    "label": "아카데미",
+    "min_count": 2,
+    "max_count": 10,
+    "thresholds": [
+      {
+        "count": 2,
+        "effect": "+8 마법서 가속"
+      },
+      {
+        "count": 4,
+        "effect": "+12 마법서 가속"
+      },
+      {
+        "count": 6,
+        "effect": "+16 마법서 가속"
+      },
+      {
+        "count": 8,
+        "effect": "+20 마법서 가속"
+      },
+      {
+        "count": 10,
+        "effect": "+15% 마법서 피해량, +8 MP 재생"
+      }
+    ]
+  },
+  {
+    "key": "curse",
+    "label": "저주",
+    "min_count": 2,
+    "max_count": 4,
+    "thresholds": [
+      {
+        "count": 2,
+        "effect": "+10% 디버프로 가하는 피해량, +7% 이동 속도"
+      },
+      {
+        "count": 4,
+        "effect": "+15% 디버프로 가하는 피해량"
+      }
+    ]
+  },
+  {
+    "key": "bargaining",
+    "label": "교섭",
+    "min_count": 2,
+    "max_count": 4,
+    "thresholds": [
+      {
+        "count": 2,
+        "effect": "+10 협상력, +15% 잎 드롭"
+      },
+      {
+        "count": 4,
+        "effect": "+15 협상력, 황금손: 소지한 잎 200개당 적에게 주는 피해 +1% (최대 20%)"
+      }
+    ]
+  },
+  {
+    "key": "element",
+    "label": "원소",
+    "min_count": 2,
+    "max_count": 6,
+    "thresholds": [
+      {
+        "count": 2,
+        "effect": "+5 가장 높은 속성 피해"
+      },
+      {
+        "count": 4,
+        "effect": "+6 가장 높은 속성 피해"
+      },
+      {
+        "count": 6,
+        "effect": "모든 속성 피해 +10% 증폭"
+      }
+    ]
+  }
+]

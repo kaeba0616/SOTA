@@ -1,0 +1,8 @@
+[
+  {"id": 27, "value": "fire_bolt", "label_kor": "파이어 볼트", "label_eng": "fire_bolt",
+   "tier": "common", "effect": {"sets": ["yinggalbul"], "content": "[고유] 파이어 볼트 획득"},
+   "image": "https://img.sephiria.wiki/artifacts/fire_bolt.webp", "description": "책.", "level": 2},
+  {"id": 25, "value": "calges", "label_kor": "캘세더니 열쇠", "label_eng": "calges",
+   "tier": "advanced", "effect": {"sets": ["magic_engineering"], "content": "관련된 속성 피해 +2/4/6/8"},
+   "image": "https://img.sephiria.wiki/artifacts/calges_2.png", "description": "의식.", "level": 3}
+]
