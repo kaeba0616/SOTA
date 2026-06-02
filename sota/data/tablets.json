@@ -1,0 +1,1805 @@
+[
+  {
+    "id": "tb_001",
+    "key": "chivalry",
+    "name": "기사도",
+    "image": "assets/tablets/chivalry.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "일반",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          -1,
+          2
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_002",
+    "key": "dry",
+    "name": "건조",
+    "image": "assets/tablets/dry.png",
+    "rotatable": false,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "일반",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_003",
+    "key": "approximation",
+    "name": "근사",
+    "image": "assets/tablets/approximation.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "일반",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_004",
+    "key": "advent",
+    "name": "도래",
+    "image": "assets/tablets/advent.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "일반",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          2
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": -1
+      },
+      {
+        "pos": [
+          0,
+          -2
+        ],
+        "type": "level_add",
+        "value": -1
+      }
+    ]
+  },
+  {
+    "id": "tb_005",
+    "key": "linear",
+    "name": "선의",
+    "image": "assets/tablets/linear.png",
+    "rotatable": false,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "일반",
+    "restriction": "bottom",
+    "effects": [
+      {
+        "pos": [
+          1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_006",
+    "key": "sight",
+    "name": "시선",
+    "image": "assets/tablets/sight.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "일반",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          -1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          -1
+        ],
+        "type": "level_add",
+        "value": -1
+      }
+    ]
+  },
+  {
+    "id": "tb_007",
+    "key": "handshake",
+    "name": "악수",
+    "image": "assets/tablets/handshake.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "일반",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_008",
+    "key": "fate",
+    "name": "운명",
+    "image": "assets/tablets/fate.png",
+    "rotatable": false,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "일반",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_009",
+    "key": "wit",
+    "name": "재치",
+    "image": "assets/tablets/wit.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "일반",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          -1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_010",
+    "key": "exploitation",
+    "name": "착취",
+    "image": "assets/tablets/exploitation.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "일반",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": -1
+      }
+    ]
+  },
+  {
+    "id": "tb_011",
+    "key": "unity",
+    "name": "화합",
+    "image": "assets/tablets/unity.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "일반",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": -1
+      },
+      {
+        "pos": [
+          -1,
+          0
+        ],
+        "type": "level_add",
+        "value": -1
+      },
+      {
+        "pos": [
+          1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_012",
+    "key": "cheer",
+    "name": "환호",
+    "image": "assets/tablets/cheer.png",
+    "rotatable": false,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "일반",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_013",
+    "key": "hope",
+    "name": "희망",
+    "image": "assets/tablets/hope.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "일반",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_014",
+    "key": "compete",
+    "name": "경쟁",
+    "image": "assets/tablets/compete.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "고급",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          -1,
+          1
+        ],
+        "type": "level_add",
+        "value": -1
+      },
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": -1
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "id": "tb_015",
+    "key": "beating",
+    "name": "고동",
+    "image": "assets/tablets/beating.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "고급",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          0,
+          2
+        ],
+        "type": "level_add",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "id": "tb_017",
+    "key": "past",
+    "name": "과거",
+    "image": "assets/tablets/past.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "고급",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_018",
+    "key": "future",
+    "name": "미래",
+    "image": "assets/tablets/future.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "고급",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          -1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_019",
+    "key": "distribution",
+    "name": "분배",
+    "image": "assets/tablets/distribution.png",
+    "rotatable": false,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "고급",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          -1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_020",
+    "key": "triceps",
+    "name": "삼두",
+    "image": "assets/tablets/triceps.png",
+    "rotatable": false,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "고급",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_021",
+    "key": "harvesting",
+    "name": "수확",
+    "image": "assets/tablets/harvesting.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "고급",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 2
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "id": "tb_022",
+    "key": "binary_star",
+    "name": "쌍성",
+    "image": "assets/tablets/binary_star.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "고급",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          0,
+          2
+        ],
+        "type": "level_add",
+        "value": 2
+      },
+      {
+        "pos": [
+          0,
+          -2
+        ],
+        "type": "level_add",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "id": "tb_023",
+    "key": "nurture",
+    "name": "양육",
+    "image": "assets/tablets/nurture.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "고급",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          -1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": -1
+      },
+      {
+        "pos": [
+          0,
+          -2
+        ],
+        "type": "level_add",
+        "value": -1
+      }
+    ]
+  },
+  {
+    "id": "tb_024",
+    "key": "yearning",
+    "name": "열망",
+    "image": "assets/tablets/yearning.png",
+    "rotatable": false,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "고급",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "id": "tb_025",
+    "key": "agglutination",
+    "name": "응집",
+    "image": "assets/tablets/agglutination.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "고급",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 3
+      },
+      {
+        "shape": "row",
+        "type": "level_add",
+        "value": -1
+      }
+    ]
+  },
+  {
+    "id": "tb_026",
+    "key": "entrance",
+    "name": "입구",
+    "image": "assets/tablets/entrance.png",
+    "rotatable": false,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "고급",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 2
+      },
+      {
+        "pos": [
+          -1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_027",
+    "key": "joke",
+    "name": "장난",
+    "image": "assets/tablets/joke.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "고급",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          -1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          0
+        ],
+        "type": "level_add",
+        "value": -1
+      },
+      {
+        "pos": [
+          -1,
+          0
+        ],
+        "type": "level_add",
+        "value": -1
+      }
+    ]
+  },
+  {
+    "id": "tb_028",
+    "key": "load",
+    "name": "적재",
+    "image": "assets/tablets/load.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "고급",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          2
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          2
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_029",
+    "key": "transition",
+    "name": "전이",
+    "image": "assets/tablets/transition.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "고급",
+    "restriction": null,
+    "effects": [
+      {
+        "shape": "column",
+        "type": "level_add",
+        "value": -1
+      },
+      {
+        "shape": "row",
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_030",
+    "key": "advance",
+    "name": "전진",
+    "image": "assets/tablets/advance.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "고급",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          2
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          3
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_031",
+    "key": "justice",
+    "name": "정의",
+    "image": "assets/tablets/justice.png",
+    "rotatable": false,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "고급",
+    "restriction": "left_right",
+    "effects": [
+      {
+        "shape": "column",
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_032",
+    "key": "preparation",
+    "name": "준비",
+    "image": "assets/tablets/preparation.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "고급",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          -1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_033",
+    "key": "exit",
+    "name": "출구",
+    "image": "assets/tablets/exit.png",
+    "rotatable": false,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "고급",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": 2
+      },
+      {
+        "pos": [
+          -1,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_034",
+    "key": "tide",
+    "name": "파도",
+    "image": "assets/tablets/tide.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "고급",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": -1
+      },
+      {
+        "pos": [
+          1,
+          1
+        ],
+        "type": "level_add",
+        "value": 2
+      },
+      {
+        "pos": [
+          -1,
+          0
+        ],
+        "type": "level_add",
+        "value": -1
+      }
+    ]
+  },
+  {
+    "id": "tb_035",
+    "key": "dedication",
+    "name": "헌정",
+    "image": "assets/tablets/dedication.png",
+    "rotatable": false,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "고급",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_036",
+    "key": "base",
+    "name": "기반",
+    "image": "assets/tablets/base.png",
+    "rotatable": false,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "희귀",
+    "restriction": null,
+    "effects": [
+      {
+        "shape": "row",
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_037",
+    "key": "warrant",
+    "name": "권능",
+    "image": "assets/tablets/warrant.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "희귀",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 3
+      }
+    ]
+  },
+  {
+    "id": "tb_038",
+    "key": "disconnection",
+    "name": "단절",
+    "image": "assets/tablets/disconnection.png",
+    "rotatable": false,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "희귀",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 3
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": 3
+      },
+      {
+        "pos": [
+          1,
+          0
+        ],
+        "type": "level_add",
+        "value": -1
+      },
+      {
+        "pos": [
+          -1,
+          0
+        ],
+        "type": "level_add",
+        "value": -1
+      }
+    ]
+  },
+  {
+    "id": "tb_039",
+    "key": "concurrency",
+    "name": "동시성",
+    "image": "assets/tablets/concurrency.png",
+    "rotatable": false,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "희귀",
+    "restriction": null,
+    "effects": [
+      {
+        "shape": "column",
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_040",
+    "key": "vow",
+    "name": "맹세",
+    "image": "assets/tablets/vow.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "희귀",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          -1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          2
+        ],
+        "type": "level_add",
+        "value": 2
+      }
+    ]
+  },
+  {
+    "id": "tb_041",
+    "key": "rebellion",
+    "name": "반항",
+    "image": "assets/tablets/rebellion.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "희귀",
+    "restriction": null,
+    "effects": [
+      {
+        "shape": "diagonal",
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_042",
+    "key": "connection",
+    "name": "이음",
+    "image": "assets/tablets/connection.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "희귀",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 2
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "restriction_remove",
+        "value": true
+      }
+    ]
+  },
+  {
+    "id": "tb_043",
+    "key": "shade",
+    "name": "차양",
+    "image": "assets/tablets/shade.png",
+    "rotatable": false,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "희귀",
+    "restriction": "top",
+    "effects": [
+      {
+        "shape": "bottom",
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_044",
+    "key": "thorn",
+    "name": "가시",
+    "image": "assets/tablets/thorn.png",
+    "rotatable": false,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "전설",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 2
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": 2
+      },
+      {
+        "pos": [
+          1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_045",
+    "key": "boundary",
+    "name": "경계",
+    "image": "assets/tablets/boundary.png",
+    "rotatable": false,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "전설",
+    "restriction": null,
+    "effects": [
+      {
+        "shape": "top",
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "shape": "bottom",
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_046",
+    "key": "sheen",
+    "name": "광휘",
+    "image": "assets/tablets/sheen.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "전설",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 2
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": 2
+      },
+      {
+        "shape": "row",
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_047",
+    "key": "miracle",
+    "name": "기적",
+    "image": "assets/tablets/miracle.png",
+    "rotatable": false,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "전설",
+    "restriction": null,
+    "effects": [
+      {
+        "shape": "row",
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "shape": "column",
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_048",
+    "key": "daydream",
+    "name": "백일몽",
+    "image": "assets/tablets/daydream.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "전설",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          2
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          2
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          -2
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          -2
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_049",
+    "key": "compression",
+    "name": "압축",
+    "image": "assets/tablets/compression.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "전설",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 3
+      },
+      {
+        "pos": [
+          0,
+          2
+        ],
+        "type": "level_add",
+        "value": 2
+      },
+      {
+        "pos": [
+          0,
+          3
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ]
+  },
+  {
+    "id": "tb_050",
+    "key": "certitude",
+    "name": "확신",
+    "image": "assets/tablets/certitude.png",
+    "rotatable": true,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": "전설",
+    "restriction": null,
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 5
+      }
+    ]
+  },
+  {
+    "id": "tb_051",
+    "key": "courage",
+    "name": "용기",
+    "image": "assets/tablets/courage.png",
+    "rotatable": false,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": null,
+    "restriction": null,
+    "effects": [],
+    "_TODO_geometry": true
+  },
+  {
+    "id": "tb_052",
+    "key": "home_town",
+    "name": "고양",
+    "image": "assets/tablets/home_town.png",
+    "rotatable": false,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": null,
+    "restriction": null,
+    "effects": [],
+    "_TODO_geometry": true
+  },
+  {
+    "id": "tb_053",
+    "key": "honor",
+    "name": "명예",
+    "image": "assets/tablets/honor.png",
+    "rotatable": false,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": null,
+    "restriction": null,
+    "effects": [],
+    "_TODO_geometry": true
+  },
+  {
+    "id": "tb_054",
+    "key": "hospitality",
+    "name": "환대",
+    "image": "assets/tablets/hospitality.png",
+    "rotatable": false,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": null,
+    "restriction": null,
+    "effects": [],
+    "_TODO_geometry": true
+  },
+  {
+    "id": "tb_055",
+    "key": "peace",
+    "name": "평화",
+    "image": "assets/tablets/peace.png",
+    "rotatable": false,
+    "size": [
+      1,
+      1
+    ],
+    "rarity": null,
+    "restriction": null,
+    "effects": [],
+    "_TODO_geometry": true
+  }
+]
