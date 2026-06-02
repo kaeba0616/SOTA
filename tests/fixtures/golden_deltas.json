@@ -12,5 +12,12 @@
     "slot_count": 34,
     "tablets": [{"key": "base", "row": 1, "col": 1, "rotation": 0}],
     "expected_deltas": {"1,0": 1, "1,3": 1, "1,5": 1, "0,1": 0, "3,1": 0}
+  },
+  {
+    "name": "rebellion_diagonal_is_anti_diagonal_only",
+    "note": "Wiki simulator (2026-06-02): rebellion (반항, shape diagonal +1) at (2,2) boosted ohia_lehua@(3,1) [anti-diagonal r+c=4] but left fire_bolt@(1,1) [main diagonal] at 0. The /large tooltip shows only the '/' anti-diagonal lighting up.",
+    "slot_count": 34,
+    "tablets": [{"key": "rebellion", "row": 2, "col": 2, "rotation": 0}],
+    "expected_deltas": {"3,1": 1, "1,3": 1, "0,4": 1, "4,0": 1, "1,1": 0, "2,0": 0, "0,2": 0}
   }
 ]
