@@ -35,23 +35,14 @@ ladder length kept only for `scale_groups`); `artifacts.json` regenerated. For t
 ladder artifacts `level+1` already equalled the ladder length, so they are unchanged.
 This was a real optimizer bug: it under-credited boosting those 25 artifacts.
 
-## Open question: `restriction` placement legality
+## Resolved: `restriction` placement legality
 
-**The simulator does NOT enforce tablet `restriction`.** `linear`(선의, restriction
-`bottom`) dropped onto row 0 stayed there — a bottom-restricted tablet placed at the top.
-So the score oracle is permissive: restricted tablets can sit anywhere and still compute.
-
-`solve/legality.py` currently FORBIDS restricted tablets outside their edge (bottom→last
-row, top→row 0, left_right→edge columns), derived from the /large tooltip ★ positions.
-This is **stricter than the simulator**. Two possibilities:
-- The actual game enforces the restriction (then the constraint is correct and the
-  simulator is just a lenient planning tool) — keep `legality` as is.
-- The game is also permissive (then `legality` is over-restrictive and the GA misses
-  valid layouts) — relax it.
-
-**Needs the player's confirmation** (can 선의/정의/차양 be placed anywhere in-game, or only
-at the bottom/edge/top?). Until then `legality` stays conservative (enforced), so suggested
-layouts are guaranteed legal even if some valid ones are skipped. Affects only 3 tablets.
+The simulator itself does NOT enforce `restriction` (a bottom-restricted `linear` could be
+dropped onto row 0), but **the actual game DOES enforce it** (confirmed by the player,
+2026-06-02): restricted tablets may only be placed at their designated edge —
+`bottom`→last row, `top`→row 0, `left_right`→leftmost/rightmost column. So
+`solve/legality.py` (which enforces exactly this) is **correct**; the simulator is just a
+lenient planning tool. No code change.
 
 ## Still provisional (low impact)
 
