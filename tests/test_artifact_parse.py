@@ -46,8 +46,21 @@ def test_normalize_artifact_schema():
         "image": "https://img.sephiria.wiki/artifacts/calges_2.png",
     }
 
-def test_normalize_unique_effect_level_one():
+def test_normalize_no_ladder_uses_level_plus_one():
+    # fire_bolt has no slash ladder but level=1 -> real max_level = level+1 = 2
+    # (verified against the simulator oracle: badge "0 / 1", boosts to "1 / 1").
     raw = json.loads((FIX / "raw_artifacts_sample.json").read_text(encoding="utf-8"))
-    a = normalize_artifact(raw[0])  # fire_bolt
-    assert a["max_level"] == 1
+    a = normalize_artifact(raw[0])  # fire_bolt, level 1
+    assert a["max_level"] == 2
     assert a["combos"] == ["yinggalbul"]
+
+def test_normalize_ladder_max_level_equals_level_plus_one():
+    # calges: ladder length 4 AND level 3 -> max_level 4 (the two agree for ladder items)
+    raw = json.loads((FIX / "raw_artifacts_sample.json").read_text(encoding="utf-8"))
+    a = normalize_artifact(raw[1])
+    assert a["max_level"] == 4
+
+def test_normalize_falls_back_to_ladder_when_level_missing():
+    raw = {"id": 1, "value": "x", "label_kor": "x", "label_eng": "x", "tier": "common",
+           "effect": {"sets": [], "content": "+1/2/3"}, "image": "x"}
+    assert normalize_artifact(raw)["max_level"] == 3  # no 'level' -> ladder length

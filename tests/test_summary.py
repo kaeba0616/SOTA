@@ -16,7 +16,7 @@ def test_build_summary_fields():
     ohia = next(t for t in s["targets"] if t["key"] == "ohia_lehua")
     assert ohia["cell"] == [0, 2] and ohia["level"] == 3
     fire = next(t for t in s["targets"] if t["key"] == "fire_bolt")
-    assert fire["level"] == 1
+    assert fire["level"] == 2  # boosted +3 by peace, clamped to real max 2 (level+1)
     assert {t["key"] for t in s["tablets"]} == {"peace"}
     assert s["approximated"] == []
 

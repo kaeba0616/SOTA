@@ -1,51 +1,48 @@
 # Mechanic Calibration Notes
 
-Status of the evaluation-engine mechanics against the wiki simulator oracle
-(`https://www.sephiria.wiki/simulator`, v0.12.0), captured 2026-06-02.
+Verification of the evaluation-engine mechanics against the wiki simulator oracle
+(`https://www.sephiria.wiki/simulator`, v0.12.0). Calibration run completed 2026-06-02.
 
-The simulator lets you drag tablets + artifacts onto the grid and renders, on each
-placed artifact, a badge of the form **`X / Y`**.
+The simulator renders, on each placed artifact, a badge **`X / Y`**.
 
-## Confirmed
+## Confirmed (verified against the oracle)
 
-- **Drag-drop placement works** programmatically (dnd-kit pointer sequence).
-- **Badge first number `X` = the total tablet level boost on that cell.**
-  - Unboosted artifact (fire_bolt) → `0 / 1`.
-  - ohia_lehua with a `peace` tablet (`[-1,0]+3 / [1,0]+3`) on its right neighbour → `3 / 2`.
-  - This validates `evaluate.effects.level_deltas` (peace contributes +3) **and** the
-    up-positive coordinate convention (`pos=[dx,dy]`, dy up). Locked by
-    `tests/test_oracle_golden.py` + `tests/fixtures/golden_deltas.json`.
+- **`X` = total tablet level boost on that cell** = `evaluate.effects.level_deltas`.
+  - Unboosted artifacts read `0 / Y`; `peace` (`[-1,0]+3 / [1,0]+3`) makes a neighbour read `3 / Y`.
+  - Confirms the up-positive coordinate convention (`pos=[dx,dy]`, dy up).
+- **`Y` = maximum boost = the raw wiki `level` field** (measured Y matched `level` exactly
+  for fire_bolt 1, ohia_lehua 2, criton 2, ignition 3, …).
+- **Start level = 1; effective level = clamp(1 + boost, 1, max_level).**
+- **`max_level = level + 1`** (RESOLVED — see below).
+- **`row` shape = the tablet's whole row.** Placing `base`(기반, row +1) boosted every
+  artifact sharing its row by +1 and left other rows at 0. (`column` is the transpose;
+  same code path.)
+- **Clamp** holds: fire_bolt (real max 2) boosted past its cap stayed at level 2 (badge `1 / 1`).
 
-## Open (provisional in code, NOT yet oracle-verified)
+## Resolved bug: `max_level` for 25 artifacts
 
-These are isolated in `evaluate/levels.py` and `evaluate/effects.py:shape_cells` so they
-can be corrected in one place without touching the score logic.
+Originally `max_level` came from the slash-ladder length, which is wrong for the 25
+`[고유]` (spell/summon) artifacts that have no/partial ladder — e.g. `golden_hand_bell`
+(was 1, real 9), `fire_bolt` (1→2), `blessing` (1→3). The wiki `level` field is the
+authority. Fixed in `scrape/artifact_parse.normalize_artifact` (`max_level = level + 1`,
+ladder length kept only for `scale_groups`); `artifacts.json` regenerated. For the 223
+ladder artifacts `level+1` already equalled the ladder length, so they are unchanged.
+This was a real optimizer bug: it under-credited boosting those 25 artifacts.
 
-1. **Badge second number `Y` (base level) — meaning unknown.**
-   fire_bolt → `Y=1`, ohia_lehua → `Y=2`. It is **not** `max_level`
-   (ohia max_level=3) and **not** the raw wiki `level` field (which we dropped during
-   scraping and which ranged 0–14). The engine currently uses a uniform
-   `START_LEVEL = 1`. If `Y` is a real per-artifact base level, scoring by absolute
-   effective level is off by a per-artifact constant. **Note:** for *optimization*
-   (ranking placements of a fixed artifact set) a constant per-artifact offset does not
-   change the argmax; it matters only for the clamp interaction below and for absolute
-   score reporting.
+## Still provisional (low impact)
 
-2. **Clamp semantics.** ohia_lehua showed `3 / 2` with a +3 boost and `max_level` 3 —
-   the relationship between `base (Y)`, `boost (X)`, `max_level`, and the value actually
-   used is unconfirmed. `effective_level` currently does `clamp(1 + delta, 1, max_level)`.
+- **`diagonal` / `top` / `bottom` shapes** — only 4 tablets use these (1 diagonal, 1 top,
+  2 bottom). `row` and the coordinate system are confirmed, giving high confidence in
+  `column`; `diagonal/top/bottom` cell sets remain best-guess in
+  `evaluate/effects.py:shape_cells`. Verify by placing `rebellion`(diagonal), `shade`(bottom),
+  `boundary`(top/bottom) and reading which neighbour badges light up.
+- **`restriction` placement legality** (`top`/`bottom`/`left_right`) in
+  `solve/legality.py` — provisional; not yet oracle-checked.
+- **`restriction_remove`** tablet interactions — not modeled in v1.
 
-3. **Shape effect geometry** (`row / column / diagonal / top / bottom`) — implemented as
-   best-guess (whole row / whole column / both diagonals / row 0 / last row). Not yet
-   placed in the simulator to confirm which cells light up.
+## Oracle harness
 
-4. **`START_LEVEL`** — provisional 1.
-
-## How to close the open items
-
-Re-run the simulator oracle (the drag-drop harness in the session history works): place
-a single scaling artifact alone (reads base `Y` and `X=0`), then add one tablet of each
-shape and read which neighbour badges change. Capture as `expected_deltas` /
-`expected_levels` fixtures and tighten `test_oracle_golden.py`. If `Y` proves to be a
-real base level, re-scrape artifacts to restore the per-artifact base and make
-`START_LEVEL` per-artifact.
+Drag-drop via a dnd-kit pointer sequence works headlessly; the slab/artifact palettes are
+filtered with the search box and surfaced for dragging; placed-artifact badges are read
+from the grid cell text. See the session history for the exact JS. Golden deltas are
+locked in `tests/test_oracle_golden.py` + `tests/fixtures/golden_deltas.json`.
