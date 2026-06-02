@@ -233,22 +233,21 @@
     "crystal_of_harmony": "crystal_of_harmony",
     "eternal_winter": "eternal_winter",
     "lightning_amulet": "lightning_amulet",
+    "multicolored_candy_jar": "multicolored_candy_jar",
+    "plump_fruits": "plump_fruits",
+    "defect_probe": "defect_probe",
+    "wanderers_necklace": "wanderers_necklace",
+    "heart_of_the_beast": "heart_of_the_beast",
+    "stone_wheel": "stone_wheel",
+    "lerids_battleb_racelet": "lerids_battleb_racelet",
+    "elastic_band": "elastic_band",
+    "unalloyed_gold_needle": "unalloyed_gold_needle",
     "thunder_judgment": "thunder",
+    "academy_fountain_pen": "academy_fountain_pen",
+    "zorous_watering_can": "zorous_watering_can",
+    "snow_mountain_big_eared_bat": "snow_mountain_big_eared_bat",
+    "plasma_helmet": "plasma_helmet",
     "red_planet_observation_log": "red_planet"
   },
-  "missing": [
-    "multicolored_candy_jar",
-    "plump_fruits",
-    "defect_probe",
-    "wanderers_necklace",
-    "heart_of_the_beast",
-    "stone_wheel",
-    "lerids_battleb_racelet",
-    "elastic_band",
-    "unalloyed_gold_needle",
-    "academy_fountain_pen",
-    "zorous_watering_can",
-    "snow_mountain_big_eared_bat",
-    "plasma_helmet"
-  ]
+  "missing": []
 }
