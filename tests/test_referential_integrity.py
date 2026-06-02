@@ -43,6 +43,25 @@ def test_every_tablet_has_well_formed_effects():
 def test_max_level_is_at_least_one():
     assert all(a["max_level"] >= 1 for a in _load("artifacts.json"))
 
-def test_every_artifact_resolves_to_an_image():
+def test_every_artifact_resolves_to_a_unique_image():
+    import os
+    from collections import Counter
     idmap = _load("idmap.json")
+    arts = _load("artifacts.json")
     assert idmap["missing"] == [], f"artifacts without local image: {idmap['missing']}"
+    assert len(idmap["map"]) == len(arts) == 248
+    dupes = {f: ks for f, ks in
+             ((f, [k for k in idmap["map"] if idmap["map"][k] == f]) for f in set(idmap["map"].values()))
+             if len(ks) > 1}
+    assert not dupes, f"multiple artifacts share one image: {dupes}"
+    imgdir = DATA.parents[1] / "assets" / "artifacts"
+    have = {os.path.splitext(f)[0] for f in os.listdir(imgdir)}
+    unresolved = [v for v in idmap["map"].values() if v not in have]
+    assert not unresolved, f"mapped images not on disk: {unresolved[:5]}"
+
+def test_every_tablet_resolves_to_an_image():
+    import os
+    imgdir = DATA.parents[1] / "assets" / "tablets"
+    have = {os.path.splitext(f)[0] for f in os.listdir(imgdir)}
+    missing = [t["key"] for t in _load("tablets.json") if t["key"] not in have]
+    assert not missing, f"tablets without image: {missing}"

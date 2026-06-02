@@ -1,5 +1,5 @@
 import re
-import difflib
+import json, os, pathlib
 
 
 def _canon(s: str) -> str:
@@ -7,35 +7,31 @@ def _canon(s: str) -> str:
 
 
 def match_images(keys: list[str], files: list[str]) -> dict:
-    """Map artifact key -> local image filename. Exact, then collapsed-alnum, then prefix, then fuzzy."""
+    """Map artifact key -> local image filename.
+
+    Exact filename, then collapsed-alnum equality, then a file that is the key
+    plus a numeric disambiguation suffix (e.g. 'calges' -> 'calges_2'). Anything
+    else goes to `missing` so the image can be fetched by its real key.
+    """
     by_canon = {}
     for f in files:
         by_canon.setdefault(_canon(f), f)
-    canon_list = list(by_canon.keys())
     mapping, missing = {}, []
     fileset = set(files)
     for k in keys:
+        ck = _canon(k)
         if k in fileset:
             mapping[k] = k
-        elif _canon(k) in by_canon:
-            mapping[k] = by_canon[_canon(k)]
+        elif ck in by_canon:
+            mapping[k] = by_canon[ck]
         else:
-            ck = _canon(k)
-            # prefix match
-            hit = next((f for cf, f in by_canon.items() if cf.startswith(ck) or ck.startswith(cf)), None)
+            hit = next((f for cf, f in by_canon.items()
+                        if cf.startswith(ck) and cf[len(ck):].isdigit()), None)
             if hit:
                 mapping[k] = hit
             else:
-                # fuzzy match via SequenceMatcher
-                matches = difflib.get_close_matches(ck, canon_list, n=1, cutoff=0.7)
-                if matches:
-                    mapping[k] = by_canon[matches[0]]
-                else:
-                    missing.append(k)
+                missing.append(k)
     return {"map": mapping, "missing": missing}
-
-
-import json, os, pathlib
 
 
 def main() -> None:

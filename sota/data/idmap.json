@@ -128,7 +128,7 @@
     "lightstone": "lightstone",
     "jewelry_armor": "jewelry_armor",
     "voluspa": "voluspa",
-    "broken_root": "broken",
+    "broken_root": "broken_root",
     "fire_circus": "fire_circus",
     "red_thread": "red_thread",
     "freezing_bug": "freezing_bug",
@@ -228,7 +228,7 @@
     "mysterious_weight": "mysterious_weight",
     "lucky_medal": "lucky_medal",
     "neutralizer_black": "neutralizer_black",
-    "green_ink_bottle_v2": "green_ink_bottle",
+    "green_ink_bottle_v2": "green_ink_bottle_v2",
     "shock_amplifier": "shock_amplifier",
     "crystal_of_harmony": "crystal_of_harmony",
     "eternal_winter": "eternal_winter",
@@ -242,12 +242,12 @@
     "lerids_battleb_racelet": "lerids_battleb_racelet",
     "elastic_band": "elastic_band",
     "unalloyed_gold_needle": "unalloyed_gold_needle",
-    "thunder_judgment": "thunder",
+    "thunder_judgment": "thunder_judgment",
     "academy_fountain_pen": "academy_fountain_pen",
     "zorous_watering_can": "zorous_watering_can",
     "snow_mountain_big_eared_bat": "snow_mountain_big_eared_bat",
     "plasma_helmet": "plasma_helmet",
-    "red_planet_observation_log": "red_planet"
+    "red_planet_observation_log": "red_planet_observation_log"
   },
   "missing": []
 }
