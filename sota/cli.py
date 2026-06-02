@@ -2,6 +2,7 @@ from sota.model.pool import ItemPool
 from sota.solve.ga import solve
 from sota.render.summary import build_summary
 from sota.render.grid_image import render_layout
+from sota.recognize.pool_from_labels import pool_from_labels
 
 
 def _validate(keys, valid, label):
@@ -23,6 +24,20 @@ def run(*, tablets, artifacts, combo, slots, seed, out, gamedata, root,
     if out is not None:
         render_layout(result.layout, combo, gamedata, root).save(out)
     return summary
+
+
+def run_from_screenshot(*, screenshot, combo, slots, seed, out, gamedata, root,
+                        recognize_fn, min_conf=0.5, generations=60, pop_size=40):
+    if combo not in gamedata.combos:
+        raise ValueError(f"unknown combo: {combo}")
+    labels = recognize_fn(screenshot)
+    pool, low = pool_from_labels(labels, gamedata, min_conf=min_conf)
+    result = solve(pool, combo, slot_count=slots, gamedata=gamedata,
+                   seed=seed, generations=generations, pop_size=pop_size)
+    summary = build_summary(result.layout, combo, gamedata)
+    if out is not None:
+        render_layout(result.layout, combo, gamedata, root).save(out)
+    return summary, low
 
 
 import argparse, pathlib, sys
