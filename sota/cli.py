@@ -56,6 +56,12 @@ def main(argv=None):
     ap.add_argument("--pop-size", type=int, default=40)
     ap.add_argument("--out", default="build.png", help="output image path")
     ap.add_argument("--list-combos", action="store_true", help="list combo keys and exit")
+    ap.add_argument("--screenshot", metavar="PATH",
+                    help="path to inventory screenshot; enables recognition mode")
+    ap.add_argument("--yes", action="store_true",
+                    help="skip confirmation prompts (reserved for future use)")
+    ap.add_argument("--min-conf", type=float, default=0.5,
+                    help="minimum classifier confidence to include a detection (default 0.5)")
     args = ap.parse_args(argv)
 
     gd = load_game_data()
@@ -70,6 +76,31 @@ def main(argv=None):
         return [x.strip() for x in s.split(",") if x.strip()]
 
     root = pathlib.Path(__file__).resolve().parents[1]
+
+    if args.screenshot:
+        try:
+            from sota.recognize.classifier import Classifier
+            from sota.recognize.recognize import recognize_screenshot
+            clf = Classifier(root / "CNN" / "sephiria_item_model.keras",
+                             root / "CNN" / "classes.pickle")
+            recognize_fn = lambda p: recognize_screenshot(p, clf).labels
+        except Exception as e:
+            print(f"error: recognition unavailable ({e}). Install tensorflow/opencv and train a model.",
+                  file=sys.stderr)
+            return 3
+        if not args.combo:
+            ap.error("--combo is required with --screenshot")
+        summary, low = run_from_screenshot(
+            screenshot=args.screenshot, combo=args.combo, slots=args.slots,
+            seed=args.seed, out=args.out, gamedata=gd, root=root,
+            recognize_fn=recognize_fn, min_conf=args.min_conf,
+            generations=args.generations, pop_size=args.pop_size)
+        if low:
+            print("low-confidence (excluded, review): " + ", ".join(f"{l}({c:.2f})" for l, c in low))
+        print(format_summary(summary))
+        print(f"\nimage written to {args.out}")
+        return 0
+
     try:
         summary = run(tablets=split(args.tablets), artifacts=split(args.artifacts),
                       combo=args.combo, slots=args.slots, seed=args.seed, out=args.out,
