@@ -71,7 +71,19 @@ def train_model(
         return cv2.resize(bg, (target_size, target_size))
 
     def _augment(image, folder_type):
-        """Return one augmented copy of *image* using the per-folder strategy."""
+        """Return one augmented copy of *image* using the per-folder strategy.
+
+        Calibrated to the REAL in-game slot rendering observed in the test
+        screenshots (CNN/test*.png), so the synthetic training distribution
+        matches inference:
+          * the canonical icon occupies only ~72-96% of the slot (padding +
+            a frame), not the whole frame;
+          * artifacts carry a top-RIGHT ``X/Y`` level badge (green or white),
+            NOT a bottom-right single digit;
+          * tablets carry a small red top-LEFT index digit and a 90° rotation;
+          * slots have a faint bevel border.
+        """
+        bg_color = BG_COLORS.get(folder_type, (60, 60, 60))
         aug = image.copy()
         h, w = aug.shape[:2]
 
@@ -79,10 +91,21 @@ def train_model(
         if folder_type == 'tablets':
             angle = np.random.choice([-180, -90, 0, 90, 180])
         else:
-            angle = np.random.uniform(-1, 1)
+            angle = np.random.uniform(-3, 3)
 
         M = cv2.getRotationMatrix2D((w / 2, h / 2), angle, 1)
         aug = cv2.warpAffine(aug, M, (w, h), borderMode=cv2.BORDER_REFLECT)
+
+        # Scale + pad: real icons sit inside the slot with margin, on slot bg.
+        if np.random.rand() < 0.85:
+            s = np.random.uniform(0.72, 0.96)
+            nh, nw = max(1, int(h * s)), max(1, int(w * s))
+            small = cv2.resize(aug, (nw, nh), interpolation=cv2.INTER_AREA)
+            canvas = np.full((h, w, 3), bg_color, np.uint8)
+            oy = np.random.randint(0, h - nh + 1)
+            ox = np.random.randint(0, w - nw + 1)
+            canvas[oy:oy + nh, ox:ox + nw] = small
+            aug = canvas
 
         # Brightness jitter
         value = np.random.randint(-30, 30)
@@ -106,21 +129,38 @@ def train_model(
                 if np.random.rand() > 0.5:
                     aug = cv2.GaussianBlur(aug, (3, 3), 0)
 
-        # UI overlays matching the original training strategy
-        if folder_type == 'artifacts' and np.random.rand() > 0.7:
-            box_size = np.random.randint(15, 25)
-            pt1 = (w - box_size, h - box_size)
-            pt2 = (w, h)
-            cv2.rectangle(aug, pt1, pt2, (20, 20, 20), -1)
-            cv2.putText(aug, str(np.random.randint(1, 9)),
-                        (w - box_size + 5, h - 5),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 2)
+        # Faint bevel border around the slot (lighter than the bg).
+        if np.random.rand() < 0.5:
+            bc = tuple(min(255, int(c * 1.5) + 10) for c in bg_color)
+            cv2.rectangle(aug, (0, 0), (w - 1, h - 1), bc, 1)
 
+        # Top-RIGHT "X/Y" level badge on artifacts (green, sometimes white),
+        # on a dark pill — matches the real game HUD.
+        if folder_type == 'artifacts' and np.random.rand() < 0.78:
+            x = int(np.random.randint(1, 9))
+            y = int(np.random.randint(x, 10))
+            txt = f'{x}/{y}'
+            fs = np.random.uniform(0.38, 0.52)
+            (tw, th), _ = cv2.getTextSize(txt, cv2.FONT_HERSHEY_SIMPLEX, fs, 1)
+            bx, by = w - tw - 2, th + 3
+            cv2.rectangle(aug, (bx - 2, by - th - 2), (bx + tw + 2, by + 3),
+                          (22, 26, 22), -1)
+            col = (120, 240, 120) if np.random.rand() < 0.7 else (245, 245, 245)
+            cv2.putText(aug, txt, (bx, by), cv2.FONT_HERSHEY_SIMPLEX, fs, col,
+                        1, cv2.LINE_AA)
+
+        # Tablets: small red top-LEFT index digit.
+        if folder_type == 'tablets' and np.random.rand() < 0.7:
+            d = str(np.random.randint(1, 6))
+            cv2.putText(aug, d, (2, 16), cv2.FONT_HERSHEY_SIMPLEX, 0.5,
+                        (50, 50, 225), 2, cv2.LINE_AA)
+
+        # Empty slots: occasional "+N" hint text.
         if folder_type == 'empty' and np.random.rand() > 0.4:
             font_scale = np.random.uniform(0.6, 1.0)
             text_x = np.random.randint(0, 10)
             text_y = np.random.randint(10, 20)
-            cv2.putText(aug, "+1", (text_x, text_y),
+            cv2.putText(aug, f"+{np.random.randint(1, 4)}", (text_x, text_y),
                         cv2.FONT_HERSHEY_SIMPLEX, font_scale, (255, 255, 255), 1)
 
         return aug.astype(np.uint8)
