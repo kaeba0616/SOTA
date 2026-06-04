@@ -126,7 +126,7 @@ def train_model(
         return aug.astype(np.uint8)
 
     dataset_dir = str(dataset_dir)
-    data, label_list = [], []
+    base_imgs, base_folders, label_list = [], [], []
     background_cache = {}
 
     # Discover class subdirectories
@@ -135,9 +135,12 @@ def train_model(
         if os.path.isdir(os.path.join(dataset_dir, d))
     )
 
+    # Load ONLY the canonical source icon per class (composited onto its slot
+    # background).  Augmentation happens lazily per-batch in the Sequence below,
+    # so we never hold the full ~N*augment_count image set in RAM (that caused
+    # the OOM kill on this 9.7 GiB box).
     for folder_type in folder_names:
         folder_path = os.path.join(dataset_dir, folder_type)
-        # Look for a matching slot background image relative to CNN/
         bg_path = os.path.join(
             os.path.dirname(os.path.abspath(str(out_model))),
             f"slot_{folder_type}.png",
@@ -166,36 +169,62 @@ def train_model(
             else:
                 base_img = img
 
-            # Original image
-            rgb = cv2.cvtColor(base_img, cv2.COLOR_BGR2RGB)
-            resized = cv2.resize(rgb, (img_size, img_size))
-            data.append(resized)
+            base_imgs.append(base_img)        # uint8 BGR, native size (~tiny)
+            base_folders.append(folder_type)
             label_list.append(label)
 
-            # Augmented copies
-            for _ in range(augment_count - 1):
-                aug = _augment(base_img, folder_type)
-                aug_rgb = cv2.cvtColor(aug, cv2.COLOR_BGR2RGB)
-                aug_resized = cv2.resize(aug_rgb, (img_size, img_size))
-                data.append(aug_resized)
-                label_list.append(label)
-
-    data = preprocess_input(np.array(data, dtype=np.float32))
+    n_base = len(base_imgs)
     labels_arr = np.array(label_list)
 
     # Encode labels
     le = LabelEncoder()
     labels_enc = le.fit_transform(labels_arr)
-    labels_onehot = to_categorical(labels_enc)
+    labels_onehot = to_categorical(labels_enc).astype(np.float32)
 
     # Persist class names immediately so they survive even if training is interrupted
     with open(out_classes, 'wb') as f:
         pickle.dump(le.classes_, f)
 
-    # Train / validation split
-    X_train, X_val, y_train, y_val = train_test_split(
-        data, labels_onehot, test_size=0.2, random_state=42
-    )
+    # Each class has exactly ONE source icon, so we cannot split base images into
+    # train/val per class.  Instead we split over the augmented *copies*: a flat
+    # index f maps to (base = f % n_base, copy = f // n_base); copy 0 is the
+    # pristine original.  Holding out 20% of copies measures robustness to the
+    # render variation we expect at inference (same items, different lighting/UI).
+    total = n_base * augment_count
+    rng = np.random.RandomState(42)
+    flat = rng.permutation(total)
+    n_val = max(1, int(total * 0.2))
+    val_flat = flat[:n_val]
+    train_flat = flat[n_val:]
+
+    class _AugSeq(tf.keras.utils.Sequence):
+        def __init__(self, flat_indices, batch_size, training):
+            super().__init__()
+            self.flat = flat_indices
+            self.bs = batch_size
+            self.training = training
+
+        def __len__(self):
+            return int(np.ceil(len(self.flat) / self.bs))
+
+        def __getitem__(self, idx):
+            chunk = self.flat[idx * self.bs:(idx + 1) * self.bs]
+            X = np.empty((len(chunk), img_size, img_size, 3), np.float32)
+            Y = np.empty((len(chunk), labels_onehot.shape[1]), np.float32)
+            for i, f in enumerate(chunk):
+                b = int(f % n_base)
+                copy_idx = int(f // n_base)
+                img = base_imgs[b]
+                if copy_idx > 0:  # copy 0 stays pristine
+                    img = _augment(img, base_folders[b])
+                rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+                rgb = cv2.resize(rgb, (img_size, img_size))
+                X[i] = rgb
+                Y[i] = labels_onehot[b]
+            return preprocess_input(X), Y
+
+    train_seq = _AugSeq(train_flat, 32, True)
+    val_seq = _AugSeq(val_flat, 32, False)
 
     # MobileNetV2 transfer model
     base_model = MobileNetV2(
@@ -222,10 +251,9 @@ def train_model(
     early_stop = EarlyStopping(monitor='val_loss', patience=5, restore_best_weights=True)
 
     model.fit(
-        X_train, y_train,
+        train_seq,
         epochs=epochs,
-        batch_size=32,
-        validation_data=(X_val, y_val),
+        validation_data=val_seq,
         callbacks=[early_stop],
     )
 
