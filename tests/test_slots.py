@@ -13,8 +13,11 @@ def test_detects_some_slots(img):
         pytest.skip(f"{img} not present")
     boxes = find_slots(frame)
     assert isinstance(boxes, list)
-    assert len(boxes) >= 1
+    assert len(boxes) >= 5  # an inventory screenshot has many slots
     for (x, y, w, h) in boxes:
         assert w > 0 and h > 0
-    ys = [b[1] for b in boxes]
-    assert ys == sorted(ys) or len(boxes) < 3
+    # roughly row-major: y is non-decreasing allowing within-row jitter (~half a slot)
+    if boxes:
+        jitter = max(h for *_, h in boxes) // 2
+        ys = [b[1] for b in boxes]
+        assert all(b - a >= -jitter for a, b in zip(ys, ys[1:]))
