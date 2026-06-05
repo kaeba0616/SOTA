@@ -18,6 +18,8 @@ def train_model(
     img_size=128,
     augment_count=150,
     epochs=30,
+    real_dir=None,
+    real_augment_count=None,
 ):
     """Train a MobileNetV2 transfer-learning classifier and save the result.
 
@@ -70,8 +72,14 @@ def train_model(
             return np.full((target_size, target_size, 3), default_color, dtype=np.uint8)
         return cv2.resize(bg, (target_size, target_size))
 
-    def _augment(image, folder_type):
+    def _augment(image, folder_type, is_real=False):
         """Return one augmented copy of *image* using the per-folder strategy.
+
+        ``is_real=True`` marks a real harvested ROI that ALREADY has the badge,
+        border and slot padding baked in.  For those we apply only mild
+        photometric jitter (brightness/blur + a tiny rotation) and skip the
+        synthetic scale/pad/badge/border overlays, which would double up.
+
 
         Calibrated to the REAL in-game slot rendering observed in the test
         screenshots (CNN/test*.png), so the synthetic training distribution
@@ -88,7 +96,9 @@ def train_model(
         h, w = aug.shape[:2]
 
         # Rotation strategy: tablets get 360°; others get near-zero jitter.
-        if folder_type == 'tablets':
+        # Real ROIs are already in their final orientation -> tiny jitter only
+        # (a tablet ROI rotated 90° would no longer match how it sits in-game).
+        if folder_type == 'tablets' and not is_real:
             angle = np.random.choice([-180, -90, 0, 90, 180])
         else:
             angle = np.random.uniform(-3, 3)
@@ -97,7 +107,8 @@ def train_model(
         aug = cv2.warpAffine(aug, M, (w, h), borderMode=cv2.BORDER_REFLECT)
 
         # Scale + pad: real icons sit inside the slot with margin, on slot bg.
-        if np.random.rand() < 0.85:
+        # Skip for real ROIs (they already include the slot framing).
+        if not is_real and np.random.rand() < 0.85:
             s = np.random.uniform(0.72, 0.96)
             nh, nw = max(1, int(h * s)), max(1, int(w * s))
             small = cv2.resize(aug, (nw, nh), interpolation=cv2.INTER_AREA)
@@ -128,6 +139,11 @@ def train_model(
                 aug = cv2.resize(small, (w, h), interpolation=cv2.INTER_NEAREST)
                 if np.random.rand() > 0.5:
                     aug = cv2.GaussianBlur(aug, (3, 3), 0)
+
+        # The synthetic slot-framing overlays below are baked into real ROIs
+        # already, so only apply them to canonical icons.
+        if is_real:
+            return aug.astype(np.uint8)
 
         # Faint bevel border around the slot (lighter than the bg).
         if np.random.rand() < 0.5:
@@ -165,8 +181,11 @@ def train_model(
 
         return aug.astype(np.uint8)
 
+    if real_augment_count is None:
+        real_augment_count = max(8, augment_count // 3)
+
     dataset_dir = str(dataset_dir)
-    base_imgs, base_folders, label_list = [], [], []
+    base_imgs, base_folders, base_real, label_list = [], [], [], []
     background_cache = {}
 
     # Discover class subdirectories
@@ -211,9 +230,40 @@ def train_model(
 
             base_imgs.append(base_img)        # uint8 BGR, native size (~tiny)
             base_folders.append(folder_type)
+            base_real.append(False)
             label_list.append(label)
 
-    n_base = len(base_imgs)
+    n_synthetic = len(base_imgs)
+
+    # Optionally ingest REAL harvested ROIs.  Layout mirrors dataset_dir
+    # (subdirs == folder types), but filenames are ``<label>__<tag>.png`` so
+    # the class label is recovered from the prefix (many ROIs share a label).
+    # These already carry badge/border/scale, so they get is_real=True (light
+    # augmentation) and fewer copies.
+    n_real = 0
+    if real_dir and os.path.isdir(str(real_dir)):
+        real_dir = str(real_dir)
+        for folder_type in sorted(os.listdir(real_dir)):
+            folder_path = os.path.join(real_dir, folder_type)
+            if not os.path.isdir(folder_path):
+                continue
+            for filename in os.listdir(folder_path):
+                if not filename.lower().endswith(VALID_EXTENSIONS):
+                    continue
+                label = os.path.splitext(filename)[0].split('__')[0]
+                img = cv2.imread(os.path.join(folder_path, filename),
+                                 cv2.IMREAD_COLOR)
+                if img is None:
+                    continue
+                base_imgs.append(img)
+                base_folders.append(folder_type)
+                base_real.append(True)
+                label_list.append(label)
+                n_real += 1
+
+    print(f"[train] {n_synthetic} canonical + {n_real} real ROIs "
+          f"-> {len(set(label_list))} classes")
+
     labels_arr = np.array(label_list)
 
     # Encode labels
@@ -225,46 +275,48 @@ def train_model(
     with open(out_classes, 'wb') as f:
         pickle.dump(le.classes_, f)
 
-    # Each class has exactly ONE source icon, so we cannot split base images into
-    # train/val per class.  Instead we split over the augmented *copies*: a flat
-    # index f maps to (base = f % n_base, copy = f // n_base); copy 0 is the
-    # pristine original.  Holding out 20% of copies measures robustness to the
-    # render variation we expect at inference (same items, different lighting/UI).
-    total = n_base * augment_count
+    # Build the (base, copy) sample list.  Each base gets its own copy count
+    # (synthetic vs real); copy 0 is the pristine original.  We split over the
+    # copies, since most classes have a single canonical source icon.
+    samples = []  # list of (base_index, copy_index)
+    for b in range(len(base_imgs)):
+        cnt = real_augment_count if base_real[b] else augment_count
+        for ci in range(cnt):
+            samples.append((b, ci))
+    samples = np.array(samples, dtype=np.int32)
     rng = np.random.RandomState(42)
-    flat = rng.permutation(total)
-    n_val = max(1, int(total * 0.2))
-    val_flat = flat[:n_val]
-    train_flat = flat[n_val:]
+    order = rng.permutation(len(samples))
+    n_val = max(1, int(len(samples) * 0.2))
+    val_samples = samples[order[:n_val]]
+    train_samples = samples[order[n_val:]]
 
     class _AugSeq(tf.keras.utils.Sequence):
-        def __init__(self, flat_indices, batch_size, training):
+        def __init__(self, sample_pairs, batch_size, training):
             super().__init__()
-            self.flat = flat_indices
+            self.pairs = sample_pairs
             self.bs = batch_size
             self.training = training
 
         def __len__(self):
-            return int(np.ceil(len(self.flat) / self.bs))
+            return int(np.ceil(len(self.pairs) / self.bs))
 
         def __getitem__(self, idx):
-            chunk = self.flat[idx * self.bs:(idx + 1) * self.bs]
+            chunk = self.pairs[idx * self.bs:(idx + 1) * self.bs]
             X = np.empty((len(chunk), img_size, img_size, 3), np.float32)
             Y = np.empty((len(chunk), labels_onehot.shape[1]), np.float32)
-            for i, f in enumerate(chunk):
-                b = int(f % n_base)
-                copy_idx = int(f // n_base)
+            for i, (b, copy_idx) in enumerate(chunk):
+                b = int(b)
                 img = base_imgs[b]
-                if copy_idx > 0:  # copy 0 stays pristine
-                    img = _augment(img, base_folders[b])
+                if int(copy_idx) > 0:  # copy 0 stays pristine
+                    img = _augment(img, base_folders[b], is_real=base_real[b])
                 rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
                 rgb = cv2.resize(rgb, (img_size, img_size))
                 X[i] = rgb
                 Y[i] = labels_onehot[b]
             return preprocess_input(X), Y
 
-    train_seq = _AugSeq(train_flat, 32, True)
-    val_seq = _AugSeq(val_flat, 32, False)
+    train_seq = _AugSeq(train_samples, 32, True)
+    val_seq = _AugSeq(val_samples, 32, False)
 
     # MobileNetV2 transfer model
     base_model = MobileNetV2(
