@@ -58,3 +58,15 @@ def test_recognize_endpoint_rejects_garbage():
     r = client.post("/api/recognize",
                     files={"file": ("x.png", b"not an image", "image/png")})
     assert r.status_code == 400
+
+
+def test_index_served():
+    r = client.get("/")
+    assert r.status_code == 200
+    assert "Sephiria" in r.text
+
+
+def test_appjs_served():
+    r = client.get("/app.js")
+    assert r.status_code == 200
+    assert "api/solve" in r.text

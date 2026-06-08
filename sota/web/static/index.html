@@ -1,2 +1,46 @@
-<!doctype html><meta charset="utf-8"><title>Sephiria Placement Simulator</title>
-<p>placeholder</p>
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sephiria Placement Simulator</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <h1>Sephiria 배치 추천</h1>
+  <div id="err" class="err"></div>
+
+  <div class="step">
+    <h2>1. 스크린샷 업로드 (선택)</h2>
+    <input type="file" id="file" accept="image/*">
+    <button id="recognizeBtn">인식</button>
+    <p class="muted">업로드하면 자동 인식합니다. 없으면 2단계에서 직접 추가하세요.</p>
+  </div>
+
+  <div class="step">
+    <h2>2. 보유 아이템 (저신뢰 항목은 빨간 배경 — 확인/수정)</h2>
+    <div id="items"></div>
+    <div class="row">
+      <input list="catalog" id="addKey" placeholder="키 입력 (예: amulet_of_power)">
+      <datalist id="catalog"></datalist>
+      <button id="addBtn">추가</button>
+    </div>
+  </div>
+
+  <div class="step">
+    <h2>3. 목표 콤보 & 슬롯 수</h2>
+    <div class="row">
+      콤보 <select id="combo"></select>
+      슬롯 <input type="number" id="slots" value="34" min="1" max="60">
+    </div>
+  </div>
+
+  <div class="step">
+    <h2>4. 추천 받기</h2>
+    <button id="solveBtn" disabled>추천 배치 계산</button>
+    <div id="result"></div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
