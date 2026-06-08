@@ -66,3 +66,31 @@ def test_solve_build_rejects_bad_slots():
         services.solve_build(tablets=[], artifacts=[], combo="firmness",
                              slots=0, seed=0, generations=10, pop_size=10,
                              gamedata=GD, root=ROOT)
+
+
+from sota.recognize.classifier import Classifier
+
+CLF = None
+
+
+def _classifier():
+    global CLF
+    if CLF is None:
+        CLF = Classifier(ROOT / "CNN" / "sephiria_item_model.keras",
+                         ROOT / "CNN" / "classes.pickle")
+    return CLF
+
+
+def test_recognize_image_on_test1():
+    img_bytes = (ROOT / "CNN" / "test1.png").read_bytes()
+    items = services.recognize_image(img_bytes, _classifier(), GD)
+    assert len(items) == 30
+    first = items[0]
+    assert set(first) == {"slot", "row", "col", "type", "key", "confidence"}
+    assert first["type"] in {"artifact", "tablet", "empty"}
+    assert 0.0 <= first["confidence"] <= 1.0
+
+
+def test_recognize_image_rejects_garbage():
+    with pytest.raises(ValueError, match="could not decode"):
+        services.recognize_image(b"not an image", _classifier(), GD)
