@@ -37,3 +37,24 @@ def test_solve_bad_slots_is_400():
     r = client.post("/api/solve", json={"combo": "firmness", "slots": 0})
     assert r.status_code == 400
     assert "slots out of range" in r.json()["detail"]
+
+
+import pathlib as _pl
+
+ROOT = _pl.Path(__file__).resolve().parents[1]
+
+
+def test_recognize_endpoint_on_test1():
+    img = (ROOT / "CNN" / "test1.png").read_bytes()
+    r = client.post("/api/recognize",
+                    files={"file": ("test1.png", img, "image/png")})
+    assert r.status_code == 200
+    body = r.json()
+    assert len(body["items"]) == 30
+    assert set(body["items"][0]) == {"slot", "row", "col", "type", "key", "confidence"}
+
+
+def test_recognize_endpoint_rejects_garbage():
+    r = client.post("/api/recognize",
+                    files={"file": ("x.png", b"not an image", "image/png")})
+    assert r.status_code == 400

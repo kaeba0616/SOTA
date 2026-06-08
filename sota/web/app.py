@@ -1,6 +1,6 @@
 import pathlib
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, UploadFile, File
 from fastapi.staticfiles import StaticFiles
 
 from sota.model.gamedata import load_game_data
@@ -45,6 +45,16 @@ def solve_endpoint(req: SolveRequest):
             pop_size=req.pop_size, gamedata=GAMEDATA, root=ROOT)
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
+
+
+@app.post("/api/recognize")
+def recognize_endpoint(file: UploadFile = File(...)):
+    data = file.file.read()
+    try:
+        items = services.recognize_image(data, _classifier(), GAMEDATA)
+    except ValueError as e:
+        raise HTTPException(status_code=400, detail=str(e))
+    return {"items": items, "note": None if items else "no slots detected"}
 
 
 # Static frontend mounted last so /api/* routes take precedence.
