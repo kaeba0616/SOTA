@@ -1153,7 +1153,7 @@
       },
       {
         "pos": [
-          -1,
+          1,
           0
         ],
         "type": "level_add",
@@ -1763,6 +1763,14 @@
     "rarity": null,
     "restriction": null,
     "effects": [
+      {
+        "pos": [
+          -3,
+          3
+        ],
+        "type": "level_add",
+        "value": 1
+      },
       {
         "pos": [
           -2,

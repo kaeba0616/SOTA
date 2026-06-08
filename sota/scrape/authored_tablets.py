@@ -6,6 +6,7 @@ dy up-positive; value is the per-cell level delta; type 'level_add'."""
 AUTHORED = [
     {"key": "courage", "name": "용기", "rotatable": True, "size": [1, 1],
      "rarity": None, "restriction": None, "effects": [
+        {"pos": [-3, 3], "type": "level_add", "value": 1},
         {"pos": [-2, 2], "type": "level_add", "value": 1},
         {"pos": [-1, 1], "type": "level_add", "value": 1},
         {"pos": [1, 1], "type": "level_add", "value": 2},
