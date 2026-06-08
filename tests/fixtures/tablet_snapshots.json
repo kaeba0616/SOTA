@@ -1,0 +1,2369 @@
+[
+  {
+    "name": "chivalry_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "기사도",
+    "effects": [
+      {
+        "pos": [
+          -1,
+          2
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "chivalry",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "0,1": 1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "dry_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "건조",
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "dry",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,2": 1,
+      "3,2": 1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "approximation_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "근사",
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "approximation",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,2": 1,
+      "2,3": 1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "advent_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "도래",
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          2
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": -1
+      },
+      {
+        "pos": [
+          0,
+          -2
+        ],
+        "type": "level_add",
+        "value": -1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "advent",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "0,2": 1,
+      "1,2": 1,
+      "3,2": -1,
+      "4,2": -1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "linear_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "선의",
+    "effects": [
+      {
+        "pos": [
+          1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "linear",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "2,1": 1,
+      "2,3": 1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "sight_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "시선",
+    "effects": [
+      {
+        "pos": [
+          -1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          -1
+        ],
+        "type": "level_add",
+        "value": -1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "sight",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,1": 1,
+      "3,3": -1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "handshake_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "악수",
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "handshake",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,2": 1,
+      "3,2": 1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "fate_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "운명",
+    "effects": [
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "fate",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "3,2": 1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "wit_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "재치",
+    "effects": [
+      {
+        "pos": [
+          -1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "wit",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,1": 1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "exploitation_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "착취",
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": -1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "exploitation",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,2": 1,
+      "3,2": -1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "unity_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "화합",
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": -1
+      },
+      {
+        "pos": [
+          -1,
+          0
+        ],
+        "type": "level_add",
+        "value": -1
+      },
+      {
+        "pos": [
+          1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "unity",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,2": -1,
+      "2,1": -1,
+      "2,3": 1,
+      "3,2": 1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "cheer_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "환호",
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "cheer",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,2": 1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "hope_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "희망",
+    "effects": [
+      {
+        "pos": [
+          1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "hope",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "2,3": 1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "compete_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "경쟁",
+    "effects": [
+      {
+        "pos": [
+          -1,
+          1
+        ],
+        "type": "level_add",
+        "value": -1
+      },
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": -1
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": 2
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "compete",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,1": -1,
+      "1,2": -1,
+      "3,2": 2,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "beating_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "고동",
+    "effects": [
+      {
+        "pos": [
+          0,
+          2
+        ],
+        "type": "level_add",
+        "value": 2
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "beating",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "0,2": 2,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "home_town_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "고양",
+    "effects": [
+      {
+        "pos": [
+          1,
+          0
+        ],
+        "type": "restriction_remove",
+        "value": true
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "home_town",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "past_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "과거",
+    "effects": [
+      {
+        "pos": [
+          1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "past",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,1": 1,
+      "1,2": 1,
+      "1,3": 1,
+      "2,3": 1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "future_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "미래",
+    "effects": [
+      {
+        "pos": [
+          -1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "future",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,1": 1,
+      "1,2": 1,
+      "1,3": 1,
+      "2,1": 1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "distribution_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "분배",
+    "effects": [
+      {
+        "pos": [
+          -1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "distribution",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,2": 1,
+      "2,1": 1,
+      "2,3": 1,
+      "3,2": 1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "triceps_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "삼두",
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "triceps",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,2": 1,
+      "2,1": 1,
+      "2,3": 1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "harvesting_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "수확",
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 2
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": 2
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "harvesting",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,2": 2,
+      "3,2": 2,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "binary_star_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "쌍성",
+    "effects": [
+      {
+        "pos": [
+          0,
+          2
+        ],
+        "type": "level_add",
+        "value": 2
+      },
+      {
+        "pos": [
+          0,
+          -2
+        ],
+        "type": "level_add",
+        "value": 2
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "binary_star",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "0,2": 2,
+      "4,2": 2,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "nurture_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "양육",
+    "effects": [
+      {
+        "pos": [
+          -1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": -1
+      },
+      {
+        "pos": [
+          0,
+          -2
+        ],
+        "type": "level_add",
+        "value": -1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "nurture",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,1": 1,
+      "1,2": 1,
+      "1,3": 1,
+      "3,2": -1,
+      "4,2": -1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "yearning_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "열망",
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 2
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "yearning",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,2": 2,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "agglutination_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "응집",
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 3
+      },
+      {
+        "shape": "row",
+        "type": "level_add",
+        "value": -1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "agglutination",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,2": 3,
+      "2,0": -1,
+      "2,1": -1,
+      "2,2": -1,
+      "2,3": -1,
+      "2,4": -1,
+      "2,5": -1,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "entrance_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "입구",
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 2
+      },
+      {
+        "pos": [
+          -1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "entrance",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,1": 1,
+      "1,2": 2,
+      "1,3": 1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "joke_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "장난",
+    "effects": [
+      {
+        "pos": [
+          -1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          0
+        ],
+        "type": "level_add",
+        "value": -1
+      },
+      {
+        "pos": [
+          -1,
+          0
+        ],
+        "type": "level_add",
+        "value": -1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "joke",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,1": 1,
+      "1,2": 1,
+      "1,3": 1,
+      "2,1": -1,
+      "2,3": -1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "load_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "적재",
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          2
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          2
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "load",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "0,1": 1,
+      "0,2": 1,
+      "1,1": 1,
+      "1,2": 1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "transition_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "전이",
+    "effects": [
+      {
+        "shape": "column",
+        "type": "level_add",
+        "value": -1
+      },
+      {
+        "shape": "row",
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "transition",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "0,2": -1,
+      "1,2": -1,
+      "2,0": 1,
+      "2,1": 1,
+      "2,3": 1,
+      "2,4": 1,
+      "2,5": 1,
+      "3,2": -1,
+      "4,2": -1,
+      "5,2": -1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "advance_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "전진",
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          2
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          3
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "advance",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "0,2": 1,
+      "1,2": 1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "justice_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "정의",
+    "effects": [
+      {
+        "shape": "column",
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "justice",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "0,2": 1,
+      "1,2": 1,
+      "2,2": 1,
+      "3,2": 1,
+      "4,2": 1,
+      "5,2": 1,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "preparation_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "준비",
+    "effects": [
+      {
+        "pos": [
+          -1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "preparation",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,1": 1,
+      "3,3": 1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "exit_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "출구",
+    "effects": [
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": 2
+      },
+      {
+        "pos": [
+          -1,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "exit",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "3,1": 1,
+      "3,2": 2,
+      "3,3": 1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "tide_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "파도",
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": -1
+      },
+      {
+        "pos": [
+          1,
+          1
+        ],
+        "type": "level_add",
+        "value": 2
+      },
+      {
+        "pos": [
+          -1,
+          0
+        ],
+        "type": "level_add",
+        "value": -1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "tide",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,2": -1,
+      "1,3": 2,
+      "2,1": -1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "dedication_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "헌정",
+    "effects": [
+      {
+        "pos": [
+          1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "dedication",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,1": 1,
+      "1,3": 1,
+      "3,1": 1,
+      "3,3": 1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "base_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "기반",
+    "effects": [
+      {
+        "shape": "row",
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "base",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "2,0": 1,
+      "2,1": 1,
+      "2,2": 1,
+      "2,3": 1,
+      "2,4": 1,
+      "2,5": 1,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "warrant_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "권능",
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 3
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "warrant",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,2": 3,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "disconnection_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "단절",
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 3
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": 3
+      },
+      {
+        "pos": [
+          1,
+          0
+        ],
+        "type": "level_add",
+        "value": -1
+      },
+      {
+        "pos": [
+          -1,
+          0
+        ],
+        "type": "level_add",
+        "value": -1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "disconnection",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,2": 3,
+      "2,1": -1,
+      "2,3": -1,
+      "3,2": 3,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "concurrency_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "동시성",
+    "effects": [
+      {
+        "shape": "column",
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "concurrency",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "0,2": 1,
+      "1,2": 1,
+      "2,2": 1,
+      "3,2": 1,
+      "4,2": 1,
+      "5,2": 1,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "vow_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "맹세",
+    "effects": [
+      {
+        "pos": [
+          -1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          2
+        ],
+        "type": "level_add",
+        "value": 2
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "vow",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "0,2": 2,
+      "1,2": 1,
+      "2,1": 1,
+      "2,3": 1,
+      "3,2": 1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "rebellion_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "반항",
+    "effects": [
+      {
+        "shape": "diagonal",
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "rebellion",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "0,4": 1,
+      "1,3": 1,
+      "3,1": 1,
+      "4,0": 1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "connection_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "이음",
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 2
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "restriction_remove",
+        "value": true
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "connection",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,2": 2,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "shade_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "차양",
+    "effects": [
+      {
+        "shape": "bottom",
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "shade",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "5,0": 1,
+      "5,1": 1,
+      "5,2": 1,
+      "5,3": 1,
+      "5,4": 1,
+      "5,5": 1,
+      "2,2": 0
+    }
+  },
+  {
+    "name": "thorn_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "가시",
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 2
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": 2
+      },
+      {
+        "pos": [
+          1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          0
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "thorn",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,1": 1,
+      "1,2": 2,
+      "1,3": 1,
+      "2,1": 1,
+      "2,3": 1,
+      "3,1": 1,
+      "3,2": 2,
+      "3,3": 1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "boundary_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "경계",
+    "effects": [
+      {
+        "shape": "top",
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "shape": "bottom",
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "boundary",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "0,0": 1,
+      "0,1": 1,
+      "0,2": 1,
+      "0,3": 1,
+      "0,4": 1,
+      "0,5": 1,
+      "5,0": 1,
+      "5,1": 1,
+      "5,2": 1,
+      "5,3": 1,
+      "5,4": 1,
+      "5,5": 1,
+      "2,2": 0
+    }
+  },
+  {
+    "name": "sheen_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "광휘",
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 2
+      },
+      {
+        "pos": [
+          0,
+          -1
+        ],
+        "type": "level_add",
+        "value": 2
+      },
+      {
+        "shape": "row",
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "sheen",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,2": 2,
+      "2,0": 1,
+      "2,1": 1,
+      "2,2": 1,
+      "2,3": 1,
+      "2,4": 1,
+      "2,5": 1,
+      "3,2": 2,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "miracle_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "기적",
+    "effects": [
+      {
+        "shape": "row",
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "shape": "column",
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "miracle",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "0,2": 1,
+      "1,2": 1,
+      "2,0": 1,
+      "2,1": 1,
+      "2,2": 2,
+      "2,3": 1,
+      "2,4": 1,
+      "2,5": 1,
+      "3,2": 1,
+      "4,2": 1,
+      "5,2": 1,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "daydream_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "백일몽",
+    "effects": [
+      {
+        "pos": [
+          1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          2
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          2
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          -2
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          -2
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "daydream",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "0,1": 1,
+      "0,3": 1,
+      "1,1": 1,
+      "1,3": 1,
+      "3,1": 1,
+      "3,3": 1,
+      "4,1": 1,
+      "4,3": 1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "compression_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "압축",
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 3
+      },
+      {
+        "pos": [
+          0,
+          2
+        ],
+        "type": "level_add",
+        "value": 2
+      },
+      {
+        "pos": [
+          0,
+          3
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "compression",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "0,2": 2,
+      "1,2": 3,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "certitude_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "확신",
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 5
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "certitude",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,2": 5,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "courage_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "용기",
+    "effects": [
+      {
+        "pos": [
+          -2,
+          2
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          1,
+          1
+        ],
+        "type": "level_add",
+        "value": 2
+      },
+      {
+        "pos": [
+          -1,
+          -1
+        ],
+        "type": "level_add",
+        "value": 2
+      },
+      {
+        "pos": [
+          1,
+          -1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          2,
+          -2
+        ],
+        "type": "level_add",
+        "value": 1
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "courage",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "0,0": 1,
+      "1,1": 1,
+      "1,3": 2,
+      "3,1": 2,
+      "3,3": 1,
+      "4,4": 1,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "honor_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "명예",
+    "effects": [
+      {
+        "pos": [
+          -1,
+          2
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 2
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "honor",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "0,1": 1,
+      "1,2": 2,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "hospitality_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "환대",
+    "effects": [
+      {
+        "pos": [
+          0,
+          1
+        ],
+        "type": "level_add",
+        "value": 1
+      },
+      {
+        "pos": [
+          -1,
+          0
+        ],
+        "type": "level_add",
+        "value": 2
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "hospitality",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "1,2": 1,
+      "2,1": 2,
+      "2,2": 0,
+      "5,5": 0
+    }
+  },
+  {
+    "name": "peace_snapshot",
+    "source": "engine-snapshot (UNVERIFIED — confirm against wiki simulator)",
+    "tablet_name": "평화",
+    "effects": [
+      {
+        "pos": [
+          -1,
+          0
+        ],
+        "type": "level_add",
+        "value": 3
+      },
+      {
+        "pos": [
+          1,
+          0
+        ],
+        "type": "level_add",
+        "value": 3
+      }
+    ],
+    "slot_count": 36,
+    "tablets": [
+      {
+        "key": "peace",
+        "row": 2,
+        "col": 2,
+        "rotation": 0
+      }
+    ],
+    "expected_deltas": {
+      "2,1": 3,
+      "2,3": 3,
+      "2,2": 0,
+      "5,5": 0
+    }
+  }
+]
