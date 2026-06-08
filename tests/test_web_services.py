@@ -15,3 +15,54 @@ def test_solve_request_accepts_items():
                        tablets=["agglutination"], artifacts=["amulet_of_power"])
     assert req.tablets == ["agglutination"]
     assert req.artifacts == ["amulet_of_power"]
+
+
+import base64
+import pathlib
+import pytest
+from sota.model.gamedata import load_game_data
+from sota.web import services
+
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+GD = load_game_data()
+
+# Known firmness artifacts present in test1 inventory.
+FIRMNESS_ARTS = ["amulet_of_power", "mark_of_warrior",
+                 "shield_technique_manual", "absolute_ring"]
+
+
+def test_solve_build_returns_score_and_image():
+    out = services.solve_build(
+        tablets=["agglutination", "agglutination"], artifacts=FIRMNESS_ARTS,
+        combo="firmness", slots=34, seed=42, generations=40, pop_size=60,
+        gamedata=GD, root=ROOT)
+    assert out["combo"] == "firmness"
+    assert out["score"] > 0
+    assert out["stages"] >= 1
+    # image is valid base64 PNG
+    raw = base64.b64decode(out["image_base64"])
+    assert raw[:8] == b"\x89PNG\r\n\x1a\n"
+    # every placement sits on the grid
+    for t in out["targets"]:
+        assert 0 <= t["cell"][0] and 0 <= t["cell"][1] < 6
+
+
+def test_solve_build_rejects_unknown_combo():
+    with pytest.raises(ValueError, match="unknown combo"):
+        services.solve_build(tablets=[], artifacts=[], combo="nope", slots=34,
+                             seed=0, generations=10, pop_size=10,
+                             gamedata=GD, root=ROOT)
+
+
+def test_solve_build_rejects_unknown_key():
+    with pytest.raises(ValueError, match="unknown keys"):
+        services.solve_build(tablets=["not_a_tablet"], artifacts=[],
+                             combo="firmness", slots=34, seed=0,
+                             generations=10, pop_size=10, gamedata=GD, root=ROOT)
+
+
+def test_solve_build_rejects_bad_slots():
+    with pytest.raises(ValueError, match="slots out of range"):
+        services.solve_build(tablets=[], artifacts=[], combo="firmness",
+                             slots=0, seed=0, generations=10, pop_size=10,
+                             gamedata=GD, root=ROOT)
