@@ -33,3 +33,14 @@ keys-based usage above works unchanged.
 data (`sota/data`) -> evaluation engine (`sota/evaluate`) -> GA solver (`sota/solve`) -> render/CLI (`sota/render`, `sota/cli.py`).
 Recognition (`sota/recognize`) turns a screenshot into the item pool the solver consumes.
 See `docs/superpowers/` for specs and plans, `docs/CALIBRATION.md` for known approximations.
+
+## Web placement simulator
+
+Install web deps and run the local site:
+
+    pip install -e ".[web]"
+    python -m sota.web            # http://127.0.0.1:8000
+
+Upload an inventory screenshot (or add items by key), pick a target combo and
+slot count, and get the GA-optimized placement. Recognition needs the CNN model
+under `CNN/` plus tensorflow + opencv installed.
