@@ -24,3 +24,12 @@ def test_top_and_bottom_rows():
 def test_partial_grid_excludes_invalid_cells():
     g = Grid(34)
     assert (5, 4) not in set(shape_cells("column", 0, 4, g))
+
+def test_bottom_edge_includes_ragged_overhang():
+    # 34 slots -> row 5 has cols 0-3; the bottom edge of cols 4-5 is row 4.
+    g = Grid(34)
+    cells = set(shape_cells("bottom", 0, 0, g))
+    assert (5, 0) in cells and (5, 3) in cells   # last row where it exists
+    assert (4, 4) in cells and (4, 5) in cells   # overhang of second-to-last row
+    assert (5, 4) not in cells                   # invalid cell
+    assert (4, 0) not in cells                   # row 5 already covers col 0

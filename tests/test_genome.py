@@ -20,3 +20,12 @@ def test_decode_drops_unplaced_and_illegal():
     assert decode([(None, 0)], pool, grid, GD).tablets == []
     assert decode([(0, 0)], pool, grid, GD).tablets == []        # row 0 illegal for 'bottom'
     assert len(decode([(grid.index(1, 0), 0)], pool, grid, GD).tablets) == 1
+
+def test_decode_forces_rotation_zero_for_non_rotatable():
+    # 'base' is non-rotatable; the solver must not place it rotated even if the
+    # genome carries a non-zero rotation gene.
+    pool = ItemPool(tablets=["base"], artifacts=[])
+    grid = Grid(12)
+    lay = decode([(0, 3)], pool, grid, GD)   # cell 0, rotation gene 3
+    assert len(lay.tablets) == 1
+    assert lay.tablets[0].rotation == 0

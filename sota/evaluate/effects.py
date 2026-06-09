@@ -16,7 +16,14 @@ def pos_target(trow, tcol, pos, rotation, grid):
     return (r, c) if grid.is_valid(r, c) else None
 
 
-def shape_cells(shape, trow, tcol, grid):
+# Odd rotations (90/270 deg) swap row<->column and flip the anti-diagonal to
+# the main diagonal; even rotations (0/180) leave a centre-line unchanged.
+# Verified against the wiki bundle (rebellion/transition/agglutination/sheen).
+_ROT_SHAPE = {"row": "column", "column": "row",
+              "diagonal": "main_diagonal", "main_diagonal": "diagonal"}
+
+
+def shape_cells(shape, trow, tcol, grid, rotation=0):
     """Cells a shape (area) effect from a tablet at (trow,tcol) hits. In-bounds only.
 
     Semantics (verified against the simulator oracle 2026-06-02):
@@ -26,7 +33,13 @@ def shape_cells(shape, trow, tcol, grid):
                  NOT both diagonals (rebellion's pattern: only "/" lights up)
       top     -> the inventory's top edge row (row 0)
       bottom  -> the inventory's bottom edge row (grid.rows - 1)
+
+    Rotation (tablet rotation 0-3): for odd rotations a row becomes a column and
+    the anti-diagonal becomes the main diagonal. top/bottom are absolute
+    inventory edges and do not rotate (their tablets are non-rotatable).
     """
+    if rotation % 2 == 1:
+        shape = _ROT_SHAPE.get(shape, shape)
     out = []
     if shape == "row":
         out = [(trow, c) for c in range(grid.cols)]
@@ -37,10 +50,22 @@ def shape_cells(shape, trow, tcol, grid):
             for c in range(grid.cols):
                 if (r, c) != (trow, tcol) and (r + c) == (trow + tcol):
                     out.append((r, c))
+    elif shape == "main_diagonal":
+        for r in range(grid.rows):
+            for c in range(grid.cols):
+                if (r, c) != (trow, tcol) and (r - c) == (trow - tcol):
+                    out.append((r, c))
     elif shape == "top":
         out = [(0, c) for c in range(grid.cols)]
     elif shape == "bottom":
-        out = [(grid.rows - 1, c) for c in range(grid.cols)]
+        # The bottom EDGE is the lowest valid cell in each column. On a ragged
+        # last row, columns past the last row's width drop to the row above
+        # (matches the wiki 'boundary' overhang handling).
+        for c in range(grid.cols):
+            for r in range(grid.rows - 1, -1, -1):
+                if grid.is_valid(r, c):
+                    out.append((r, c))
+                    break
     else:
         raise ValueError(f"unknown shape {shape}")
     return [(r, c) for (r, c) in out if grid.is_valid(r, c)]
@@ -57,7 +82,7 @@ def level_deltas(layout, grid, gamedata):
             if eff.get("type") != "level_add":
                 continue
             if "shape" in eff:
-                targets = shape_cells(eff["shape"], tp.row, tp.col, grid)
+                targets = shape_cells(eff["shape"], tp.row, tp.col, grid, tp.rotation)
             else:
                 t = pos_target(tp.row, tp.col, eff["pos"], tp.rotation, grid)
                 targets = [t] if t else []
