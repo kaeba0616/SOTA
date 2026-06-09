@@ -19,7 +19,8 @@ def decode(genome, pool, grid, gamedata):
             if tablet is None or not is_legal_cell(tablet, r, c, grid):
                 continue
             taken.add((r, c))
-            tablets.append(TabletPlacement(key=key, row=r, col=c, rotation=rotation % 4))
+            rot = rotation % 4 if tablet.get("rotatable") else 0
+            tablets.append(TabletPlacement(key=key, row=r, col=c, rotation=rot))
         else:
             taken.add((r, c))
             artifacts.append(ArtifactPlacement(key=key, row=r, col=c))
